@@ -1,0 +1,64 @@
+############################################################################
+# BASE exports
+############################################################################
+export USERID=$USER
+export EDITOR=gedit 
+export TRANSLATOR=javac
+
+############################################################################
+# HOME definitions
+############################################################################
+# setting home should not really be required as it is set by linux on startup
+#export HOME=/home/$USER
+#export ANT_HOME=$HOME/.apache/ant/apache-ant-1.9.4
+export SCALA_HOME=$HOME/bin/scala/scala-2.11.8
+export SBT_HOME=$HOME/bin/sbt
+# Append the npm root value to your NODE_PATH variable
+export NODE_PATH=$NODE_PATH:$HOME/local/lib/node_modules
+export SDKMAN_DIR=$HOME/.sdkman
+
+############################################################################
+# History exports
+############################################################################
+export HISTCONTROL=ignoredups:erasedups
+export HISTSIZE=50000
+export HISTFILESIZE=500000
+export HISTIGNORE="pwd:l:ls:q:exit"
+
+######################################################################
+# Colors                                                             #
+######################################################################
+# The exporting of the colors is an experiment in progress 
+# Can i set these and use them in LS_COLORS, GREP_COLOR, and the Git
+# colors contained in .bash_functions???
+
+export RED="\[\033[0;31m\]"
+export YELLOW="\[\033[0;33m\]"
+export GREEN="\[\033[0;32m\]"
+export BLUE="\[\033[0;34m\]"
+export LIGHT_RED="\[\033[1;31m\]"
+export LIGHT_GREEN="\[\033[1;32m\]"
+export WHITE="\[\033[1;37m\]"
+export LIGHT_GRAY="\[\033[0;37m\]"
+export COLOR_NONE="\[\e[0m\]"
+
+# EXPERIMENTAL CODE END
+
+# SEE http://blog.twistedcode.org/2008/04/lscolors-explained.html for an explanation of LS_COLORS
+export LS_COLORS='di=1;32:fi=0:ln=36:ex=1;34:pi=5:so=5:bd=5:cd=5:mi=31:or=31:*.deb=90'
+export GREP_COLOR='1;37;44'
+
+######################################################################
+# PATH additions                                                     #
+######################################################################
+#export PATH=/usr/local/bin:$PATH # already on path - not needed here
+#export PATH=/usr/bin:$PATH # already on path - not needed here
+#export PATH=/bin::$PATH # already on path - not needed here
+#export PATH=/usr/sbin:$PATH # already on path - not needed here
+export PATH=$HOME/local/bin:$PATH
+export PATH=$HOME/bin/bash:$HOME/bin/groovy:$HOME/bin/python:$HOME/bin:$PATH
+export PATH=$SCALA_HOME/bin:$PATH
+#export PATH=$ANT_HOME/bin:$PATH
+# Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
+

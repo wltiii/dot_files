@@ -1,0 +1,23 @@
+= BASH Profile
+Bill Turner
+:toc:
+:toc-placement!:
+
+toc::[]
+
+== Summary
+This is the collection of BASH profile scripts I use. No claim to fitness is made.
+
+== Files
+. *.bashrc*
+. *.bash_profile*
+. *.profile*
+. *.bash_aliases*
+. *.bash_exports*
+. *.bash_functions*
+. *.bash_logout*
+. *.bash_options*
+
+== TODO
+There is no .bash_history file in this collection. It could potentially be usable. Perhaps a stubbed version could be created.
+
