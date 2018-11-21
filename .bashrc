@@ -49,12 +49,12 @@ if [ -f "${HOME}/.bash_functions" ]; then
 fi
 
 ############################################################################
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+# package managers must be loaded last
 ############################################################################
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-export NVM_DIR="/home/worldwidewilly/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

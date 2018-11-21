@@ -9,15 +9,114 @@ toc::[]
 This is the collection of BASH profile scripts I use. No claim to fitness is made.
 
 == Files
-. *.bashrc*
-. *.bash_profile*
-. *.profile*
-. *.bash_aliases*
-. *.bash_exports*
-. *.bash_functions*
-. *.bash_logout*
-. *.bash_options*
+=== *.bashrc*
+=== *.bash_profile*
+=== *.profile*
+=== *.bash_aliases*
+A partial list of aliases. Use command `alias` to list all that are in effect.
+
+==== list directory aliases
+|===
+|Command| Notes
+|l      |all but . and .. in columns
+|ls     |almost all, long list, human readable sizes, show symbolic link reference, , human readable sizes
+|ll     |long list, human readable sizes
+|lt     |long list, human readable sizes, sorted by modification time (newest first)
+|la     |ls -lhtA
+|lr     |long list, human readable sizes, sorted by modification time (reversed)
+|lar    |ls -ltAr
+|dir    |ls --color=auto --format=vertical
+|vdir   |ls --color=auto --format=long
+|===
+
+==== tool aliases
+|===
+|Command| Notes
+|vi     |vim
+|more   |less
+|grep   |egrep - show differences in colour
+|fgrep  |fgrep - show differences in colour
+|sdkman |sdk
+|sudo   |sudo -i
+|mysudo |sudo -i -E env "PATH=$PATH"
+|===
+
+==== git aliases
+|===
+|Command| Notes
+|ga     |git add -i
+|gb     |git branch
+|gba    |git branch -a
+|gc     |git commit -v
+|gcko   |git checkout
+|gd     |git diff | meld
+|gf     |git fetch
+|gfm    |git pull
+|gm     |git merge
+|gpl    |git pull
+|unadd  |git reset
+|gst    |git status *NOTE:* gst will conflict with some smalltalk command
+|branch |git checkout -b
+|git-upstreams|git fetch --all; git branch -vv
+|===
+
+==== misc command aliases
+|===
+|Command| Notes
+|refresh|source ~/.bashrc
+|clr    |clear
+|trail  |tail -f
+|q      |exit
+|up     |cd ..
+|up2    |cd ../..
+|up3    |cd ../../..
+|up4    |cd ../../../..
+|up5    |cd ../../../../..
+|up6    |cd ../../../../../..
+|..     |up
+|...    |up2
+|....   |up3
+|.....  |up4
+|...... |up5
+|.......|up6
+|workspace|cd ~/workspace
+|whence |type -a - where, of a sort
+|hist   |search history for a command using grep
+|===
+
+==== Interactive operation...
+|===
+|Command| Notes
+|cp     |cp -vi - to prompt when copying if you want to overwrite and will tell you where
+|rd     |rm --interactive=once --recursive --dir --force --verbose' - Prompts you if you really want to remove it.
+|mv     |mv -i - Prompts you if you are going to overwrite something
+|===
+
+=== *.bash_exports*
+=== *.bash_functions*
+=== *.bash_logout*
+=== *.bash_options*
+
+== Installation Issues
+=== Globstar
+==== Issue
+Message `sh: shopt: globstar: invalid shell option name` appears when starting a new shell.
+
+==== Explanation
+The *globstar* option requires bash v4. This issue occured to me after installation on a Mac.
+
+==== Solution
+. Run command `bash --version` to verify your version.
+. Update your bash per your platform.
+.. On Mac:
+... Run homebrew command: `brew install bash`
+... Update /etc/shells: `echo /usr/local/bin/bash | sudo tee -a /etc/shells`
+
+==== Further References
+* https://brew.sh/
+* https://apple.stackexchange.com/questions/291287/globstar-invalid-shell-option-name-on-macos-even-with-bash-4-x
+* https://stackoverflow.com/questions/49048720/unable-to-modify-etc-shells-on-macos-to-include-brew-installed-version-of-bash
 
 == TODO
-There is no .bash_history file in this collection. It could potentially be usable. Perhaps a stubbed version could be created.
-
+. There is no .bash_history file in this collection. It could potentially be usable. Perhaps a stubbed version could be created.
+. Document further - maybe

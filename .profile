@@ -64,5 +64,5 @@ fi
 # fi
 
 # Ubuntu make installation of Ubuntu Make binary symlink
-PATH=/home/worldwidewilly/.local/share/umake/bin:$PATH
+PATH=$HOME/.local/share/umake/bin:$PATH
 
