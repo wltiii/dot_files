@@ -125,6 +125,23 @@ The *globstar* option requires bash v4. This issue occured to me after installat
 ... Link to terminal app: `ln -s /usr/local/bin/bash /usr/local/bin/bash-terminal-app`
 ... Set Terminal to open terminal app: Terminal > Preferences > General tab > Shells open with: Command: `/usr/local/bin/bash-terminal-app` 
 
+=== Meld 
+==== Issue
+Meld is missing.
+
+==== Explanation
+Script `.bash_aliases` sets diff to Meld.
+
+==== Solution
+. Change the diff alias to some other diff/merge tool. See https://www.tecmint.com/best-linux-file-diff-tools-comparison/ for options.
+. Install Meld
+.. On Linux, use a package manager.
+.. On Windows, use the Meld installer available at: http://meldmerge.org/
+.. On Mac, instalation is not supported. You can attempt to install it using homebrew (see below). See http://meldmerge.org/ for other options.
+... Run `brew tap homebrew/cask`
+... Run `brew cask install meld`
+
+
 ==== Further References
 * https://brew.sh/
 * https://apple.stackexchange.com/questions/291287/globstar-invalid-shell-option-name-on-macos-even-with-bash-4-x
