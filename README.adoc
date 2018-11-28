@@ -63,7 +63,7 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 ==== misc command aliases
 |===
 |Command| Notes
-|refresh|source ~/.bashrc
+|refresh|source ~/.bash_profile
 |clr    |clear
 |trail  |tail -f
 |q      |exit
@@ -111,6 +111,8 @@ The *globstar* option requires bash v4. This issue occured to me after installat
 .. On Mac:
 ... Run homebrew command: `brew install bash`
 ... Update /etc/shells: `echo /usr/local/bin/bash | sudo tee -a /etc/shells`
+... Link to terminal app: `ln -s /usr/local/bin/bash /usr/local/bin/bash-terminal-app`
+... Set Terminal to open terminal app: Terminal > Preferences > General tab > Shells open with: Command: `/usr/local/bin/bash-terminal-app` 
 
 ==== Further References
 * https://brew.sh/

@@ -5,15 +5,16 @@
 ############################################################################
 # list directory aliases
 ############################################################################
-alias l='ls -CF'                              # all but . and .. in columns
-alias ls='ls -Alhi --color=auto'              # almost all, long list, human readable sizes, show symbolic link reference, , human readable sizes
-alias ll='ls -lh'                             # long list, human readable sizes
-alias lt='ls -lht'                            # long list, human readable sizes, sorted by modification time (newest first)
-alias la='ls -lhtA'
-alias lr='ls -lhtr'                           # long list, human readable sizes, sorted by modification time (reversed)
-alias lar='ls -ltAr'
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
+alias l='\ls -CF'                              # all but . and .. in columns
+#alias ls='ls -Alhi --color=auto'              # almost all, long list, human readable sizes, show symbolic link reference, , human readable sizes
+alias ls='ls -GAlhi'                           # REPLACES above - Works on MAC, need to test on Linux - SEE https://superuser.com/questions/183876/how-do-i-get-ls-color-auto-to-work-on-mac-os-x
+alias ll='\ls -lh'                             # long list, human readable sizes
+alias lt='\ls -lht'                            # long list, human readable sizes, sorted by modification time (newest first)
+alias la='\ls -lhtA'
+alias lr='\ls -lhtr'                           # long list, human readable sizes, sorted by modification time (reversed)
+alias lar='\ls -ltAr'
+alias dir='\ls --color=auto --format=vertical'
+alias vdir='\ls --color=auto --format=long'
 
 ############################################################################
 # tool aliases
@@ -49,7 +50,7 @@ alias git-upstreams='git fetch --all; git branch -vv'
 ############################################################################
 # misc command aliases
 ############################################################################
-alias refresh='source ~/.bashrc'
+alias refresh='source ~/.bash_profile'
 alias clr='clear'
 alias trail='tail -f'
 alias q='exit'
