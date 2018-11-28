@@ -8,6 +8,17 @@ toc::[]
 == Summary
 This is the collection of BASH profile scripts I use. No claim to fitness is made.
 
+== Installation
+Running the install script prompts before replacing any existing bash config files. 
+
+NOTE: as of writing this, the script does not properly execute the source command, therefore you must run it manually.
+
+. Clone the project
+. Switch to directory into which project was cloned
+. Grant permission to installation script `chmod +x install.sh`
+. Run installation script `./install.sh`
+. Source bash_profile `source ~/.bash_profile`
+
 == Files
 === *.bashrc*
 === *.bash_profile*
@@ -122,3 +133,6 @@ The *globstar* option requires bash v4. This issue occured to me after installat
 == TODO
 . There is no .bash_history file in this collection. It could potentially be usable. Perhaps a stubbed version could be created.
 . Document further - maybe
+. Fix installation script to source bash_profile
+. Test all this against my Ubuntu machine. I am especially interested in changes to the ls commands referencing color.
+. Are there other ls "color" commands I have not checked?
