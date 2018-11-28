@@ -135,4 +135,5 @@ The *globstar* option requires bash v4. This issue occured to me after installat
 . Document further - maybe
 . Fix installation script to source bash_profile
 . Test all this against my Ubuntu machine. I am especially interested in changes to the ls commands referencing color.
-. Are there other ls "color" commands I have not checked?
+. Are there other commands using _--color_ I have not checked?
+. Diff references meld. Is that what I want? Add to prerequesites section.
