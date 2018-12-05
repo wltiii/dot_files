@@ -9,9 +9,11 @@ toc::[]
 This is the collection of BASH profile scripts I use. No claim to fitness is made.
 
 == Installation
-Running the install script prompts before replacing any existing bash config files. 
+Running the install script prompts before replacing any existing bash config files.
 
-NOTE: as of writing this, the script does not properly execute the source command, therefore you must run it manually.
+NOTE: I would like to _source_ the updated profile out of the installation script, but that does not seem possible. It
+may be, but I have not dug deeply into it. The problem is that the script runs in it's own shell, which means the _source_
+command does not apply to the shell from which install is run. Thus, be sure to execute the _source_ command.
 
 . Clone the project
 . Switch to directory into which project was cloned
@@ -107,6 +109,9 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 === *.bash_functions*
 === *.bash_logout*
 === *.bash_options*
+=== *.bash_client*
+This is a stub so that settings can be overriden at each client site (or whatever). Note that the install will create
+it but not overwrite it.
 
 == Installation Issues
 === Globstar
@@ -123,9 +128,9 @@ The *globstar* option requires bash v4. This issue occured to me after installat
 ... Run homebrew command: `brew install bash`
 ... Update /etc/shells: `echo /usr/local/bin/bash | sudo tee -a /etc/shells`
 ... Link to terminal app: `ln -s /usr/local/bin/bash /usr/local/bin/bash-terminal-app`
-... Set Terminal to open terminal app: Terminal > Preferences > General tab > Shells open with: Command: `/usr/local/bin/bash-terminal-app` 
+... Set Terminal to open terminal app: Terminal > Preferences > General tab > Shells open with: Command: `/usr/local/bin/bash-terminal-app`
 
-=== Meld 
+=== Meld
 ==== Issue
 Meld is missing.
 
