@@ -21,8 +21,6 @@ if [ ! -f "${HOME}/.bash_client" ]; then
 
 EOF
 fi
-  #cp -vi .bash_client ~/.bash_client
-#  echo "#\n# Place any client site custom profile settings here. The\n# install script will only copy this if it does not already exist.\n#\n" > ~/.bash_client
 
 echo
 # cannot source from script - too bad...
