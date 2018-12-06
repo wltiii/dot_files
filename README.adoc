@@ -142,7 +142,7 @@ Script `.bash_aliases` sets diff to Meld.
 . Install Meld
 .. On Linux, use a package manager.
 .. On Windows, use the Meld installer available at: http://meldmerge.org/
-.. On Mac, instalation is not supported. You can attempt to install it using homebrew (see below). See http://meldmerge.org/ for other options.
+.. On Mac, installation is not supported. You can attempt to install it using homebrew (see below). See http://meldmerge.org/ for other options.
 ... Run `brew tap homebrew/cask`
 ... Run `brew cask install meld`
 
