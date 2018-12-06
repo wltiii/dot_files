@@ -22,8 +22,10 @@ command does not apply to the shell from which install is run. Thus, be sure to 
 . Source bash_profile `source ~/.bash_profile`
 
 == Files
-=== *.bashrc*
 === *.bash_profile*
+The one to rule them all.
+
+=== *.bashrc*
 === *.profile*
 === *.bash_aliases*
 A partial list of aliases. Use command `alias` to list all that are in effect.
