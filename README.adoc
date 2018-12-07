@@ -22,8 +22,10 @@ command does not apply to the shell from which install is run. Thus, be sure to 
 . Source bash_profile `source ~/.bash_profile`
 
 == Files
-=== *.bashrc*
 === *.bash_profile*
+The one to rule them all.
+
+=== *.bashrc*
 === *.profile*
 === *.bash_aliases*
 A partial list of aliases. Use command `alias` to list all that are in effect.
@@ -143,7 +145,7 @@ Script `.bash_aliases` sets diff to Meld.
 . Install Meld
 .. On Linux, use a package manager.
 .. On Windows, use the Meld installer available at: http://meldmerge.org/
-.. On Mac, instalation is not supported. You can attempt to install it using homebrew (see below). See http://meldmerge.org/ for other options.
+.. On Mac, installation is not supported. You can attempt to install it using homebrew (see below). See http://meldmerge.org/ for other options.
 ... Run `brew tap homebrew/cask`
 ... Run `brew cask install meld`
 
