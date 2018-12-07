@@ -76,9 +76,13 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 ==== misc command aliases
 |===
 |Command| Notes
-|refresh|source ~/.bash_profile
 |clr    |clear
+|hist   |search history for a command using grep
+|path   |PATH pretty printed
+|refresh|source ~/.bash_profile
 |trail  |tail -f
+|whence |type -a - where, of a sort
+|work   |cd ~/workspace
 |q      |exit
 |up     |cd ..
 |up2    |cd ../..
@@ -92,9 +96,6 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |.....  |up4
 |...... |up5
 |.......|up6
-|workspace|cd ~/workspace
-|whence |type -a - where, of a sort
-|hist   |search history for a command using grep
 |===
 
 ==== Interactive operation...

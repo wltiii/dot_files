@@ -66,10 +66,11 @@ alias ....='up3'
 alias .....='up4'
 alias ......='up5'
 alias .......='up6'
-alias workspace='cd ~/workspace'
+alias work='cd ~/workspace'
 alias whence='type -a'                        # where, of a sort
 # alias less='less -r'                        # raw control characters
 alias hist='history | grep -i'                # search history for a command
+alias path='echo -e ${PATH//:/\\n}'           # pretty path
 
 ############################################################################
 # Interactive operation...
