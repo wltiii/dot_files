@@ -46,6 +46,7 @@ alias unadd='git reset'
 alias gst='git status' # NOTE: gst will conflict with some smalltalk command
 alias branch='git checkout -b'
 alias git-upstreams='git fetch --all; git branch -vv'
+alias git-remote='git remote get-url origin'
 
 ############################################################################
 # misc command aliases
