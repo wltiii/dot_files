@@ -59,21 +59,21 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 ==== git aliases
 |===
 |Alias| Command | Notes
-|ga     |git add -i
-|gb     |git branch
-|gba    |git branch -a
-|gc     |git commit -v
-|gcko   |git checkout
-|gd     |git diff                           | meld
-|gf     |git fetch
-|gfm    |git pull
-|gm     |git merge
-|gpl    |git pull
-|unadd  |git reset
-|gst    |git status                         |*NOTE:* gst will conflict with some smalltalk command
-|branch |git checkout -b
-|git-upstreams|git fetch --all; git branch -vv
-|git-remote   |git remote get-url origin . |use `git remote show origin` for a complete info
+|ga     |git add -i     |
+|gb     |git branch     |
+|gba    |git branch -a  |
+|gc     |git commit -v  |
+|gcko   |git checkout   |
+|gd     |git diff       | meld
+|gf     |git fetch      |
+|gfm    |git pull       |
+|gm     |git merge      |
+|gpl    |git pull       |
+|unadd  |git reset      |
+|gst    |git status     |*NOTE:* gst will conflict with some smalltalk command
+|branch |git checkout -b |
+|git-upstreams |git fetch --all; git branch -vv |fetches then shows current branch
+|git-remote    |git remote get-url origin .     |use `git remote show origin` for a complete info
 |===
 
 ==== misc command aliases
