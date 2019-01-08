@@ -73,7 +73,7 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |gst    |git status     |*NOTE:* gst will conflict with some smalltalk command
 |branch |git checkout -b |
 |git-upstreams |git fetch --all; git branch -vv |fetches then shows current branch
-|git-remote    |git remote get-url origin .     |use `git remote show origin` for a complete info
+|git-remote    |git remote get-url origin       |use `git remote show origin` for complete info
 |===
 
 ==== misc command aliases
