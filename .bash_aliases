@@ -47,11 +47,12 @@ alias gst='git status' # NOTE: gst will conflict with some smalltalk command
 alias branch='git checkout -b'
 alias git-upstreams='git fetch --all; git branch -vv'
 alias git-remote='git remote get-url origin'
+alias checkout='git fetch --all; git checkout'
 
 ############################################################################
 # misc command aliases
 ############################################################################
-alias refresh='source ~/.bash_profile'
+# alias refresh='source ~/.bash_profile' # this does not work. see README.
 alias clr='clear'
 alias trail='tail -f'
 alias q='exit'

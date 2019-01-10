@@ -72,8 +72,9 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |unadd  |git reset      |
 |gst    |git status     |*NOTE:* gst will conflict with some smalltalk command
 |branch |git checkout -b |
-|git-upstreams |git fetch --all; git branch -vv |fetches then shows current branch
+|git-upstreams |git fetch --all; git branch -vv |fetch all remotes && show sha1, commit subject line && upstream branch name
 |git-remote    |git remote get-url origin       |use `git remote show origin` for complete info
+|checkout      |git fetch --all; git checkout |checkout branch whether local or remote
 |===
 
 ==== misc command aliases
@@ -82,7 +83,7 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |clr    |clear
 |hist   |search history for a command using grep
 |path   |PATH pretty printed
-|refresh|source ~/.bash_profile
+|refresh|source ~/.bash_profile *NOTE* this does not work
 |trail  |tail -f
 |whence |type -a - where, of a sort
 |work   |cd ~/workspace
