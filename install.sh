@@ -11,9 +11,9 @@
 \cp -vi .bash_logout ~/.bash_logout
 \cp -vi .bash_options ~/.bash_options
 
-if [ ! -f "${HOME}/.bash_client" ]; then
-  echo 'installing .bash_client'
-  cat > ~/.bash_client << EOF
+if [ ! -f "${HOME}/.bash_custom" ]; then
+  echo 'installing .bash_custom'
+  cat > ~/.bash_custom << EOF
 #
 # Place any client site custom profile settings here. The
 # install script will only copy this if it does not already exist.

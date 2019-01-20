@@ -114,7 +114,7 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 === *.bash_functions*
 === *.bash_logout*
 === *.bash_options*
-=== *.bash_client*
+=== *.bash_custom*
 This is a stub so that settings can be overriden at each client site (or whatever). Note that the install will create
 it but not overwrite it.
 
