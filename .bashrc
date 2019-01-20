@@ -49,10 +49,10 @@ if [ -f "${HOME}/.bash_functions" ]; then
 fi
 
 ############################################################################
-# Client specific settings
+# Custom settings used for non-standard implmentations
 ############################################################################
-if [ -f "${HOME}/.bash_client" ]; then
-  source "${HOME}/.bash_client"
+if [ -f "${HOME}/.bash_custom" ]; then
+  source "${HOME}/.bash_custom"
 fi
 
 ############################################################################
