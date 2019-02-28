@@ -74,7 +74,9 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |branch |git checkout -b |
 |git-upstreams |git fetch --all; git branch -vv |fetch all remotes && show sha1, commit subject line && upstream branch name
 |git-remote    |git remote get-url origin       |use `git remote show origin` for complete info
-|checkout      |git fetch --all; git checkout |checkout branch whether local or remote
+|checkout      |git fetch --all; git checkout   |checkout branch whether local or remote
+|merge-dev     |git merge origin/develop        |merges origin/develop into the local branch
+|copy-to-branch | git stash; git checkout $1; git stash pop |allows copying of changes to a different branch. technically a function, not an alias
 |===
 
 ==== misc command aliases

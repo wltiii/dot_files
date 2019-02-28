@@ -48,6 +48,8 @@ alias branch='git checkout -b'
 alias git-upstreams='git fetch --all; git branch -vv'
 alias git-remote='git remote get-url origin'
 alias checkout='git fetch --all; git checkout'
+alias merge-dev='git merge origin/develop'
+alias git-apply-to-branch='git stash; git checkout $1; git stash pop'
 
 ############################################################################
 # misc command aliases

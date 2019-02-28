@@ -4,6 +4,15 @@
 findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 not found"; }
 
 ########################################################################
+# copy-to-branch stashes current changes, checks out branch and applies
+# the changes
+########################################################################
+copy-to-branch() {
+  git stash
+  git checkout $1
+  git stash pop
+}
+########################################################################
 # Matthew's Git Bash Prompt
 ########################################################################
 
