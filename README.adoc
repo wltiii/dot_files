@@ -77,6 +77,7 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |checkout      |git fetch --all; git checkout   |checkout branch whether local or remote
 |merge-dev     |git merge origin/develop        |merges origin/develop into the local branch
 |copy-to-branch | git stash; git checkout $1; git stash pop |allows copying of changes to a different branch. technically a function, not an alias
+|commit-distrib | git log --format=format: --name-only \| egrep -v "^$" \| sort \| uniq -c \| sort -r \| head -5 |shows files in order of number of commits
 |===
 
 ==== misc command aliases
