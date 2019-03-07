@@ -76,8 +76,8 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |git-remote    |git remote get-url origin       |use `git remote show origin` for complete info
 |checkout      |git fetch --all; git checkout   |checkout branch whether local or remote
 |merge-dev     |git merge origin/develop        |merges origin/develop into the local branch
-|copy-to-branch | git stash; git checkout $1; git stash pop |allows copying of changes to a different branch. technically a function, not an alias
-|commit-distrib | git log --format=format: --name-only \| egrep -v "^$" \| sort \| uniq -c \| sort -r \| head -5 |shows files in order of number of commits
+|commit-freq       | git log --format=format: --name-only \| egrep -v "^$" \| sort \| uniq -c \| sort -r \| head -5 |shows files in order of commit-frequency, limited to the top five (??? is that what the head-5 does?)
+|commit-freq-log   | git log --format=format: --name-only \| egrep -v "^$" \| sort \| uniq -c \| sort -r > commit_frequency.log |logs the commit frequency for all files in order of commit-frequency. TODO: make this a function!
 |===
 
 ==== misc command aliases
@@ -114,6 +114,11 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |===
 
 === *.bash_exports*
+|===
+|Alias| Command | Notes
+|copy-to-branch | git fetch --all; git branch -vv; git stash; git checkout $1; git stash pop |allows copying of changes to a different branch, even if branch only exists on the remote (it fetches said branches)
+|===
+
 === *.bash_functions*
 === *.bash_logout*
 === *.bash_options*
@@ -161,6 +166,7 @@ Script `.bash_aliases` sets diff to Meld.
 * https://stackoverflow.com/questions/49048720/unable-to-modify-etc-shells-on-macos-to-include-brew-installed-version-of-bash
 
 == TODO
+. Aliases _commit-freq_ and _commit-freq-log_ should be functions to make them more robust.
 . There is no .bash_history file in this collection. It could potentially be usable. Perhaps a stubbed version could be created.
 . Document further - maybe
 . Fix installation script to source bash_profile

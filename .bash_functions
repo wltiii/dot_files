@@ -8,6 +8,8 @@ findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 
 # the changes
 ########################################################################
 copy-to-branch() {
+  git fetch --all
+  git branch -vv
   git stash
   git checkout $1
   git stash pop
