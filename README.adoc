@@ -114,14 +114,17 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |===
 
 === *.bash_exports*
-|===
-|Alias| Command | Notes
-|copy-to-branch | git fetch --all; git branch -vv; git stash; git checkout $1; git stash pop |allows copying of changes to a different branch, even if branch only exists on the remote (it fetches said branches)
-|===
 
 === *.bash_functions*
+|===
+|Function | Command | Notes
+|copy-to-branch |git fetch --all; git branch -vv; git stash; git checkout $1; git stash pop |allows copying of changes to a different branch, even if branch only exists on the remote (it fetches said branches)
+|===
+
 === *.bash_logout*
+
 === *.bash_options*
+
 === *.bash_custom*
 This is a stub so that settings can be overriden at each client site (or whatever). Note that the install will create
 it but not overwrite it.
