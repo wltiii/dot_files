@@ -70,7 +70,8 @@ alias ....='up3'
 alias .....='up4'
 alias ......='up5'
 alias .......='up6'
-alias work='cd ~/workspace'
+# removed. use groovy script 'work' in workman project
+# alias work='cd ~/workspace'
 alias whence='type -a'                        # where, of a sort
 # alias less='less -r'                        # raw control characters
 alias hist='history | grep -i'                # search history for a command
