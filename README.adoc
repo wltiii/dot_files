@@ -86,6 +86,7 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |clr    |clear
 |hist   |search history for a command using grep
 |path   |PATH pretty printed
+|prettypath   |PATH pretty printed - same as `path` just a better mnemonic
 |refresh|source ~/.bash_profile *NOTE* this does not work
 |trail  |tail -f
 |whence |type -a - where, of a sort
