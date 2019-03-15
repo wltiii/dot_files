@@ -76,6 +76,7 @@ alias whence='type -a'                        # where, of a sort
 # alias less='less -r'                        # raw control characters
 alias hist='history | grep -i'                # search history for a command
 alias path='echo -e ${PATH//:/\\n}'           # pretty path
+alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
 
 ############################################################################
 # Interactive operation...
