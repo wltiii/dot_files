@@ -1,5 +1,6 @@
 ########################################################################
 # find partition name for a given filename
+# see: https://www.cyberciti.biz/faq/linux-unix-command-findout-on-which-partition-file-directory-exits/
 ########################################################################
 findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 not found"; }
 
