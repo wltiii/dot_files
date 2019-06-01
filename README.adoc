@@ -151,6 +151,12 @@ The *globstar* option requires bash v4. This issue occured to me after installat
 ==== Issue
 Meld is missing.
 
+==== NOTE
+I use DeltaWalker, which integrates nicely with Git. Thus, the alias for diff just launches the diff tool, in this case DeltaWalker. See:
+
+. https://www.deltawalker.com/preferences/general-scm-integration
+. https://www.deltawalker.com/integrate/git-hg-bazaar-svn
+
 ==== Explanation
 Script `.bash_aliases` sets diff to Meld.
 
