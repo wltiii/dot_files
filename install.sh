@@ -1,15 +1,51 @@
 #!/bin/bash
-#
-# copies `bash` profile files to home directory with prompts for overwriting and sources the new settings
-#
-\cp -vi .bashrc ~/.bashrc
-\cp -vi .bash_profile ~/.bash_profile
-\cp -vi .profile ~/.profile
-\cp -vi .bash_aliases ~/.bash_aliases
-\cp -vi .bash_exports ~/.bash_exports
-\cp -vi .bash_functions ~/.bash_functions
-\cp -vi .bash_logout ~/.bash_logout
-\cp -vi .bash_options ~/.bash_options
+
+# copies `bash` profile files to home directory, backing up
+# existing dot files to the dot_files_backup dir in users home
+
+DOT_FILES_BACKUP_HOME=~/dot_files_backup
+
+TIMESTAMP=$(date --iso-8601=seconds)
+
+createBackupDir() {
+  if [ ! -d "$DOT_FILES_BACKUP_HOME" ]; then
+    mkdir -v "$DOT_FILES_BACKUP_HOME"
+  fi
+}
+
+backupFile() {
+  source=~/"$1"
+  target="$source-$TIMESTAMP"
+  if [ -f "$source" ]; then 
+    \cp -av -- "$source" "$target"
+    \mv -v "$target" "$DOT_FILES_BACKUP_HOME"
+  fi
+}
+
+replaceFile() {
+  \cp -v "$1" ~/"$1"
+}
+
+installFile() {
+  filename="$1"
+  userFile=~/"$filename"
+  cmp -s $filename $userFile > /dev/null
+  comp_value=$?
+  if [ $comp_value -eq 1 ]; then
+    backupFile "$filename"
+    replaceFile "$filename"
+  fi
+}
+
+createBackupDir
+
+installFile ".bashrc"
+installFile ".bash_profile"
+installFile ".bash_aliases"
+installFile ".bash_exports"
+installFile ".bash_functions"
+installFile ".bash_logout"
+installFile ".bash_options"
 
 if [ ! -f "${HOME}/.bash_custom" ]; then
   echo 'installing .bash_custom'
