@@ -18,7 +18,12 @@ command does not apply to the shell from which install is run. Thus, be sure to 
 . Clone the project
 . Switch to directory into which project was cloned
 . Grant permission to installation script `chmod +x install.sh`
-. Run installation script `./install.sh`
+. Run installation script `./install.sh`. This will:
+.. Create directory `dot_files_backup` in the user home directory (`~`), if it does not exist.
+.. For each dot file that differs from the corresponding file in the project:
+... Append a timestamp to the file name
+... Move the to the backup directory
+... Copy the dot file from the project directory to the user home.
 . Source bash_profile `source ~/.bash_profile`
 
 == Files
@@ -76,8 +81,6 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |git-remote    |git remote get-url origin       |use `git remote show origin` for complete info
 |checkout      |git fetch --all; git checkout   |checkout branch whether local or remote
 |merge-dev     |git merge origin/develop        |merges origin/develop into the local branch
-|commit-freq       | git log --format=format: --name-only \| egrep -v "^$" \| sort \| uniq -c \| sort -r \| head -5 |shows files in order of commit-frequency, limited to the top five (??? is that what the head-5 does?)
-|commit-freq-log   | git log --format=format: --name-only \| egrep -v "^$" \| sort \| uniq -c \| sort -r > commit_frequency.log |logs the commit frequency for all files in order of commit-frequency. TODO: make this a function!
 |===
 
 ==== misc command aliases
