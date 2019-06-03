@@ -5,7 +5,11 @@
 
 DOT_FILES_BACKUP_HOME=~/dot_files_backup
 
-TIMESTAMP=$(date --iso-8601=seconds)
+# TODO this timestamp worked on linux, does not on mac
+#TIMESTAMP=$(date --iso-8601=seconds)
+# TODO this timestamp worked on MAC will it on linux?
+TIMESTAMP=$(date "+%Y-%m-%dT%H:%M:%S")
+echo "TIMESTAMP is $TIMESTAMP"
 
 createBackupDir() {
   if [ ! -d "$DOT_FILES_BACKUP_HOME" ]; then
@@ -16,7 +20,8 @@ createBackupDir() {
 backupFile() {
   source=~/"$1"
   target="$source-$TIMESTAMP"
-  if [ -f "$source" ]; then 
+  echo "target is $target"
+  if [ -f "$source" ]; then
     \cp -av -- "$source" "$target"
     \mv -v "$target" "$DOT_FILES_BACKUP_HOME"
   fi
