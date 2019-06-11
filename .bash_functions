@@ -19,7 +19,7 @@ copy-to-branch() {
 }
 
 ########################################################################
-# git_ticket
+# git-ticket
 # parses the ticket name from the branch
 # Ken Williams at Windlogics shared this code
 ########################################################################
