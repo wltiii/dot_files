@@ -5,16 +5,38 @@
 findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 not found"; }
 
 ########################################################################
-# copy-to-branch stashes current changes, checks out branch and applies
+# copy-to-branch
+# stashes current changes, checks out branch and applies
 # the changes
 ########################################################################
 copy-to-branch() {
+  # git fetch --all; git branch -vv; git stash; git checkout $1; git stash pop
   git fetch --all
   git branch -vv
   git stash
   git checkout $1
   git stash pop
 }
+
+########################################################################
+# git_ticket
+# parses the ticket name from the branch
+# Ken Williams at Windlogics shared this code
+########################################################################
+function git-ticket () {
+  git rev-parse --abbrev-ref HEAD | perl -ne 'print m{(?:^|/)([A-Z]+-\d+)} ? qq{$1 } : q{}'
+}
+
+########################################################################
+# git-commit
+# uses git-ticket to prepend the commit message with
+# the ticket name
+# Ken Williams at Windlogics shared this code
+########################################################################
+function git-commit () {
+  x=$(git_ticket); git commit -v -m "$x$1"
+}
+
 ########################################################################
 # Matthew's Git Bash Prompt
 ########################################################################

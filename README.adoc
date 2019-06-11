@@ -121,8 +121,11 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 
 === *.bash_functions*
 |===
-|Function | Command | Notes
-|copy-to-branch |git fetch --all; git branch -vv; git stash; git checkout $1; git stash pop |allows copying of changes to a different branch, even if branch only exists on the remote (it fetches said branches)
+|Function | Notes
+|copy-to-branch |allows copying of changes to a different branch, even if branch only exists on the remote (it fetches said branches)
+|findpart |finds the partition name for a given filename
+|git-ticket |parses the ticket name from the branch
+|git-commit |uses git-ticket to prepend the commit message with the ticket name
 |===
 
 === *.bash_logout*
