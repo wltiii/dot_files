@@ -67,7 +67,7 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |ga     |git add -i     |
 |gb     |git branch     |
 |gba    |git branch -a  |
-|gc     |git commit -v  |
+|gc     |git-commit     | calls bash function git-commit
 |gcko   |git checkout   |
 |gd     |git diff       | meld
 |gf     |git fetch      |
