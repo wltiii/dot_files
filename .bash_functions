@@ -23,7 +23,8 @@ copy-to-branch() {
 # parses the ticket name from the branch
 # Ken Williams at Windlogics shared this code
 ########################################################################
-function git-ticket () {
+git-ticket() {
+  # TODO handle non existent branches
   git rev-parse --abbrev-ref HEAD | perl -ne 'print m{(?:^|/)([A-Z]+-\d+)} ? qq{$1 } : q{}'
 }
 
@@ -33,8 +34,8 @@ function git-ticket () {
 # the ticket name
 # Ken Williams at Windlogics shared this code
 ########################################################################
-function git-commit () {
-  x=$(git_ticket); git commit -v -m "$x$1"
+git-commit() {
+  x=$(git-ticket); git commit -v -m "$x$1"
 }
 
 ########################################################################
