@@ -1,2 +1,5 @@
+# unignore globally ignored files
+!make-project.sh
+
+# ignore vscode history
 .history/*
-commit_frequency.log
