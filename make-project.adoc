@@ -1,0 +1,33 @@
+= BASH Profile
+Bill Turner
+
+.Console Log
+[source,bash]
+----
+➔ ./make-project.sh ENOP-937 "Remove avg. price and your cost when NaN errors occur in daily chart for Current cycle"
+develop
+master
+Already on 'develop'
+Your branch is up to date with 'origin/develop'.
+Enter passphrase for key '/Users/bturner/.ssh/id_rsa':
+Already up to date.
+branch_name is [ENOP-937-Remove-Avg-Price-And-Your-Cost-When-Nan-Errors-Occur-In-Daily-Chart-For-Current-Cycle]
+Switched to branch 'ENOP-937-Remove-Avg-Price-And-Your-Cost-When-Nan-Errors-Occur-In-Daily-Chart-For-Current-Cycle'
+Can't open story initialized
+Enter passphrase for key '/Users/bturner/.ssh/id_rsa':
+Total 0 (delta 0), reused 0 (delta 0)
+remote:
+remote: To create a merge request for ENOP-937-Remove-Avg-Price-And-Your-Cost-When-Nan-Errors-Occur-In-Daily-Chart-For-Current-Cycle, visit:
+remote:   https://gitlab.windlogics.com/internal/energy-optimizer/eo-app/eo-ionic-capacitor/merge_requests/new?merge_request%5Bsource_branch%5D=ENOP-937-Remove-Avg-Price-And-Your-Cost-When-Nan-Errors-Occur-In-Daily-Chart-For-Current-Cycle
+remote:
+To gitlab.windlogics.com:internal/energy-optimizer/eo-app/eo-ionic-capacitor.git
+ * [new branch]      ENOP-937-Remove-Avg-Price-And-Your-Cost-When-Nan-Errors-Occur-In-Daily-Chart-For-Current-Cycle -> ENOP-937-Remove-Avg-Price-And-Your-Cost-When-Nan-Errors-Occur-In-Daily-Chart-For-Current-Cycle
+Branch 'ENOP-937-Remove-Avg-Price-And-Your-Cost-When-Nan-Errors-Occur-In-Daily-Chart-For-Current-Cycle' set up to track remote branch 'ENOP-937-Remove-Avg-Price-And-Your-Cost-When-Nan-Errors-Occur-In-Daily-Chart-For-Current-Cycle' from 'origin'.
+----
+
+The line stating `Can't open story initialized` is troubling. I think it comes from trying to commit
+without making a change. So, that leaves the question, is committing necessary?
+
+It does not seem to matter.
+
+Put some logging around the commit to verify that is where that message is generated.
