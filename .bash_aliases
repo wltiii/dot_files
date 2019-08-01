@@ -77,6 +77,12 @@ alias path='echo -e ${PATH//:/\\n}'           # pretty path
 alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
 
 ############################################################################
+# Software analysis
+############################################################################
+alias commit-freq='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r | head -5'
+alias commit-freq-log='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r > commit_frequency.log'
+
+############################################################################
 # Interactive operation...
 ############################################################################
 alias cp='cp -vi' #to prompt when copying if you want to overwrite and will tell you where
