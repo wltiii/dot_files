@@ -49,6 +49,7 @@ alias git-upstreams='git fetch --all; git branch -vv'
 alias git-remote='git remote get-url origin'
 alias checkout='git fetch --all; git checkout'
 alias merge-dev='git merge origin/develop'
+alias git-update='git pull origin develop'
 ############################################################################
 # misc command aliases
 ############################################################################

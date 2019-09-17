@@ -48,10 +48,8 @@ echo "branch_name is [${branch_name}]"
 git branch $branch_name
 git checkout $branch_name
 
-# # commit the project - NOTE: this depends upon my gc function
+# commit the project - NOTE: this depends upon my gc function
 gc "story initialized"
 
-# # push to origin
-# # NOTE: if this does not work, see: https://stackoverflow.com/a/6089415/471133
-# # git push origin --set-upstream origin $branch_name
+# push to origin
 git push -u origin $branch_name
