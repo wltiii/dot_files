@@ -81,6 +81,7 @@ A partial list of aliases. Use command `alias` to list all that are in effect.
 |git-remote    |git remote get-url origin       |use `git remote show origin` for complete info
 |checkout      |git fetch --all; git checkout   |checkout branch whether local or remote
 |merge-dev     |git merge origin/develop        |merges origin/develop into the local branch
+|git-update    |git pull origin develop         |updates from develop - assumes giflow and develop is working branch
 |===
 
 ==== misc command aliases
