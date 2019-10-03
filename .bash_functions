@@ -35,7 +35,7 @@ git-ticket() {
 # Ken Williams at Windlogics shared this code
 ########################################################################
 git-commit() {
-  x=$(git-ticket); git commit -v -m "$x$1"
+  x=$(git-ticket); git commit -a -v -m "$x$1"
 }
 
 ########################################################################
