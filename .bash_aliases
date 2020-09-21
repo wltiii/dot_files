@@ -52,18 +52,18 @@ alias merge-dev='git merge origin/develop'
 alias git-update='git pull origin develop'
 
 # MyRepo aliases - requires MyRepos to be installed: https://myrepos.branchable.com/
-alias mr-checkout='mr "$@" checkout
-alias mr-clean='mr "$@" clean
-alias mr-diff='mr "$@" diff
-alias mr-fetch='mr "$@" fetch
-alias mr-list='mr "$@" list
-alias mr-log='mr "$@" log
-alias mr-record='mr "$@" record
+alias mr-checkout='mr "$@" checkout'
+alias mr-clean='mr "$@" clean'
+alias mr-diff='mr "$@" diff'
+alias mr-fetch='mr "$@" fetch'
+alias mr-list='mr "$@" list'
+alias mr-log='mr "$@" log'
+alias mr-record='mr "$@" record'
 alias mr-register-all='for D in $(\ls);do mr register $D; done;'
-alias mr-register='mr "$@" register
-alias mr-status='mr "$@" status
+alias mr-register='mr "$@" register'
+alias mr-status='mr "$@" status'
 alias mr-update-all='mr -j5 update'
-alias mr-update='mr "$@" update
+alias mr-update='mr "$@" update'
 
 ############################################################################
 # misc command aliases
