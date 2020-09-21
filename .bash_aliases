@@ -53,6 +53,7 @@ alias git-update='git pull origin develop'
 
 # MyRepo aliases - requires MyRepos to be installed: https://myrepos.branchable.com/
 alias mr-all='mr -j5 update'
+alias mr-register-all='for D in $(\ls);do mr register $D; done;'
 
 ############################################################################
 # misc command aliases
