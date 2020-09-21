@@ -50,6 +50,10 @@ alias git-remote='git remote get-url origin'
 alias checkout='git fetch --all; git checkout'
 alias merge-dev='git merge origin/develop'
 alias git-update='git pull origin develop'
+
+# MyRepo aliases - requires MyRepos to be installed: https://myrepos.branchable.com/
+alias mr-all='mr -j5 update'
+
 ############################################################################
 # misc command aliases
 ############################################################################
@@ -80,8 +84,9 @@ alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
 ############################################################################
 # Software analysis
 ############################################################################
-alias commit-freq='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r | head -5'
-alias commit-freq-log='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r > commit_frequency.log'
+alias xray-commit-freq='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r'
+alias xray-top-5='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r | head -5'
+alias xray-commit-freq-log='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r > xray-commit-frequency.log'
 
 ############################################################################
 # Interactive operation...
