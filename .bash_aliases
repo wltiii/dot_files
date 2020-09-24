@@ -32,6 +32,8 @@ alias mysudo='sudo -i -E env "PATH=$PATH"'
 ############################################################################
 # git aliases
 ############################################################################
+alias branch='git checkout -b'
+alias checkout='git fetch --all; git checkout'
 alias ga='git add -i'
 alias gb='git branch'
 alias gba='git branch -a'
@@ -40,16 +42,14 @@ alias gcko='git checkout'
 alias gd='git diff | meld'
 alias gf='git fetch'
 alias gfm='git pull'
+alias git-remote='git remote get-url origin'
+alias git-update='git pull origin develop'
+alias git-upstreams='git fetch --all; git branch -vv'
 alias gm='git merge'
 alias gpl='git pull'
-alias unadd='git reset'
 alias gst='git status' # NOTE: gst will conflict with some smalltalk command
-alias branch='git checkout -b'
-alias git-upstreams='git fetch --all; git branch -vv'
-alias git-remote='git remote get-url origin'
-alias checkout='git fetch --all; git checkout'
 alias merge-dev='git merge origin/develop'
-alias git-update='git pull origin develop'
+alias unadd='git reset'
 
 # MyRepo aliases - requires MyRepos to be installed: https://myrepos.branchable.com/
 alias mr-checkout='mr "$@" checkout'
@@ -69,28 +69,28 @@ alias mr-update='mr "$@" update'
 # misc command aliases
 ############################################################################
 # alias refresh='source ~/.bash_profile' # this does not work. see README.
+# alias work='cd ~/workspace'                 # removed. use groovy script 'work' in workman project
+# alias less='less -r'                        # raw control characters
+alias .......='up6'
+alias ......='up5'
+alias .....='up4'
+alias ....='up3'
+alias ...='up2'
+alias ..='up'
 alias clr='clear'
-alias trail='tail -f'
+alias filtered-aliases='alias | grep "$@"'
+alias hist='history | grep -i'                # search history for a command
+alias path='echo -e ${PATH//:/\\n}'           # pretty path
+alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
 alias q='exit'
+alias trail='tail -f'
 alias up='cd ..'
 alias up2='cd ../..'
 alias up3='cd ../../..'
 alias up4='cd ../../../..'
 alias up5='cd ../../../../..'
 alias up6='cd ../../../../../..'
-alias ..='up'
-alias ...='up2'
-alias ....='up3'
-alias .....='up4'
-alias ......='up5'
-alias .......='up6'
-# removed. use groovy script 'work' in workman project
-# alias work='cd ~/workspace'
 alias whence='type -a'                        # where, of a sort
-# alias less='less -r'                        # raw control characters
-alias hist='history | grep -i'                # search history for a command
-alias path='echo -e ${PATH//:/\\n}'           # pretty path
-alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
 
 ############################################################################
 # Software analysis
