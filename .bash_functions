@@ -1,4 +1,14 @@
 ########################################################################
+# aliases shows all aliases with an optional filter pattern
+########################################################################
+aliases() {
+	if [ -n "$1" ]; then
+		alias | grep "$@"
+	else
+		alias
+	fi
+}
+########################################################################
 # find partition name for a given filename
 # see: https://www.cyberciti.biz/faq/linux-unix-command-findout-on-which-partition-file-directory-exits/
 ########################################################################
@@ -25,7 +35,8 @@ copy-to-branch() {
 ########################################################################
 git-ticket() {
   # TODO handle non existent branches
-  git rev-parse --abbrev-ref HEAD | perl -ne 'print m{(?:^|/)([A-Z]+-\d+)} ? qq{$1 } : q{}'
+#  git rev-parse --abbrev-ref HEAD | perl -ne 'print m{(?:^|/)([A-Z]+-\d+)} ? qq{$1 } : q{}'
+  git rev-parse --abbrev-ref HEAD | perl -ne 'print m{(?:^)([\w]+-\d+)} ? uc(qq{\[$1\] }) : q{}'
 }
 
 ########################################################################

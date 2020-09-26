@@ -10,11 +10,11 @@ export TRANSLATOR=javac
 ############################################################################
 # setting home should not really be required as it is set by linux on startup
 #export HOME=/home/$USER
-export SCALA_HOME=$HOME/bin/scala/scala-2.11.8
-export SBT_HOME=$HOME/bin/sbt
+#export SCALA_HOME=$HOME/bin/scala/scala-2.11.8
+#export SBT_HOME=$HOME/bin/sbt
 # Append the npm root value to your NODE_PATH variable
-export NODE_PATH=$NODE_PATH:$HOME/local/lib/node_modules
-export SDKMAN_DIR=$HOME/.sdkman
+#export NODE_PATH=$NODE_PATH:$HOME/local/lib/node_modules
+#export SDKMAN_DIR=$HOME/.sdkman
 
 ############################################################################
 # History exports
@@ -50,12 +50,12 @@ export GREP_COLOR='1;37;44'
 ######################################################################
 # PATH additions                                                     #
 ######################################################################
-export PATH=$PATH:$HOME/local/bin
+#export PATH=$PATH:$HOME/local/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/bin/bash
 export PATH=$PATH:$HOME/bin/groovy
 export PATH=$PATH:$HOME/bin/python
-export PATH=$PATH:$SCALA_HOME/bin
+#export PATH=$PATH:$SCALA_HOME/bin
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.work
 
