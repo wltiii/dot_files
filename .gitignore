@@ -3,3 +3,6 @@
 
 # ignore vscode history
 .history/*
+
+# ignore intellij files
+.idea/*
