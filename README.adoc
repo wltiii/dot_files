@@ -143,7 +143,7 @@ it but not overwrite it.
 Message `sh: shopt: globstar: invalid shell option name` appears when starting a new shell.
 
 ==== Explanation
-The *globstar* option requires bash v4. This issue occured to me after installation on a Mac.
+The *globstar* option requires bash v4. This issue occured to me after installation on a Mac. See https://merikan.com/2019/04/upgrade-to-bash-5-in-macos/ for upgrading Mac to bash5.
 
 ==== Solution
 . Run command `bash --version` to verify your version.
