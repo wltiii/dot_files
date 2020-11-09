@@ -79,6 +79,7 @@ alias ...='up2'
 alias ..='up'
 alias clr='clear'
 alias filtered-aliases='alias | grep "$@"'
+alias formatjson='pbpaste|json|pbcopy'
 alias hist='history | grep -i'                # search history for a command
 alias path='echo -e ${PATH//:/\\n}'           # pretty path
 alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
