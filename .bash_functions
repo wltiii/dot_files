@@ -9,6 +9,27 @@ aliases() {
 	fi
 }
 ########################################################################
+#
+########################################################################
+json() {
+  if [ "$#" -eq 1 ]; then
+    groovyclient -e "println new groovy.json.JsonSlurper().parse(System.in).$@"
+  else
+    groovyclient -e "println groovy.json.JsonOutput.prettyPrint(System.in.text)"
+  fi
+}
+########################################################################
+#
+########################################################################
+xml() {
+  if [ "$#" -eq 1 ]; then
+    xmllint -format - >/tmp/xml.xml
+    groovyclient -e "println new groovy.util.XmlSlurper().parse(new File('/tmp/xml.xml')).$@"
+  else
+    xmllint -format -
+  fi
+}
+########################################################################
 # find partition name for a given filename
 # see: https://www.cyberciti.biz/faq/linux-unix-command-findout-on-which-partition-file-directory-exits/
 ########################################################################
