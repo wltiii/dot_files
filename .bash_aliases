@@ -81,6 +81,8 @@ alias clr='clear'
 alias filtered-aliases='alias | grep "$@"'
 alias formatjson='pbpaste|json|pbcopy'
 alias hist='history | grep -i'                # search history for a command
+alias jless="jso | less"                      # pipes json to less - see bash function json()
+#alias mapitup='pbpaste | json | sed s/\"/\'/g | sed -E s/\'\(.*\)\':/\\1:/g | sed s/\{/\[/g | sed s/\}/\]/g | pbcopy'
 alias mapitup='pbpaste | json | sed s/\"/\'/g | sed -E s/\'\(.*\)\':/\\1:/g | sed s/\{/\[/g | sed s/\}/\]/g | pbcopy'
 alias path='echo -e ${PATH//:/\\n}'           # pretty path
 alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
@@ -94,6 +96,7 @@ alias up4='cd ../../../..'
 alias up5='cd ../../../../..'
 alias up6='cd ../../../../../..'
 alias whence='type -a'                        # where, of a sort
+alias xless="xml | less"                      # pipes xml to less - see bash function xml()
 
 ############################################################################
 # Software analysis
