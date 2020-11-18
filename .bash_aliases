@@ -28,6 +28,7 @@ alias sdkman='sdk'
 #alias sudo='sudo -E env "PATH=$PATH"'
 alias sudo='sudo -i'
 alias mysudo='sudo -i -E env "PATH=$PATH"'
+alias mob='~/.local/bin/mob'
 
 ############################################################################
 # git aliases
@@ -81,9 +82,8 @@ alias clr='clear'
 alias filtered-aliases='alias | grep "$@"'
 alias formatjson='pbpaste|json|pbcopy'
 alias hist='history | grep -i'                # search history for a command
-alias jless="jso | less"                      # pipes json to less - see bash function json()
+alias jless="json | less"                     # pipes json to less - see bash function json()
 #alias mapitup='pbpaste | json | sed s/\"/\'/g | sed -E s/\'\(.*\)\':/\\1:/g | sed s/\{/\[/g | sed s/\}/\]/g | pbcopy'
-alias mapitup='pbpaste | json | sed s/\"/\'/g | sed -E s/\'\(.*\)\':/\\1:/g | sed s/\{/\[/g | sed s/\}/\]/g | pbcopy'
 alias path='echo -e ${PATH//:/\\n}'           # pretty path
 alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
 alias q='exit'
