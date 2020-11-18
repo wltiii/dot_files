@@ -33,24 +33,29 @@ alias mob='~/.local/bin/mob'
 ############################################################################
 # git aliases
 ############################################################################
-alias branch='git checkout -b'
 alias checkout='git fetch --all; git checkout'
-alias ga='git add -i'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gc='git-commit'
-alias gcko='git checkout'
-alias gd='git diff | meld'
-alias gf='git fetch'
-alias gfm='git pull'
+alias gst='git status' # NOTE: gst will conflict with some smalltalk command
+
+alias git-add='git add -i'
+alias git-branch-and-checkout='git checkout -b'
+alias git-branch='git branch'
+alias git-checkout='git checkout'
+alias git-commit='git-commit'
+alias git-diff-meld='git diff | meld'
+alias git-fetch-merge='git pull'
+alias git-fetch='git fetch'
+alias git-list-all='git branch -a'
+alias git-list-remotes='git branch -r'
+alias git-merge-dev='git merge origin/develop'
+alias git-merge='git merge'
+alias git-pull='git pull'
 alias git-remote='git remote get-url origin'
+alias git-reset='git reset'
+alias git-set-upstream='git branch --set-upstream'
+alias git-status='git status'
+alias git-unadd='git reset'
 alias git-update='git pull origin develop'
 alias git-upstreams='git fetch --all; git branch -vv'
-alias gm='git merge'
-alias gpl='git pull'
-alias gst='git status' # NOTE: gst will conflict with some smalltalk command
-alias merge-dev='git merge origin/develop'
-alias unadd='git reset'
 
 # MyRepo aliases - requires MyRepos to be installed: https://myrepos.branchable.com/
 alias mr-checkout='mr "$@" checkout'
