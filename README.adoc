@@ -197,6 +197,9 @@ Script `.bash_aliases` sets diff to Meld.
 . Are there other commands using _--color_ I have not checked?
 . Diff references meld. Is that what I want? Add to prerequesites section.
 
+== Incubating
+
+----
 [~]➔ type merge-branch-to-master-and-delete
 merge-branch-to-master-and-delete is a function
 merge-branch-to-master-and-delete () 
@@ -232,4 +235,4 @@ gpg is aliased to `git pull;gclean'
 gclean is aliased to `prune;gbda'
 [~]➔ type gbda
 gbda is aliased to `git branch | cut -c3- | grep -v "^master$" | grep -v "^post-holiday$" | xargs git branch -D'
-
+----
