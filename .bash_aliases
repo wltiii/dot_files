@@ -37,10 +37,11 @@ alias checkout='git fetch --all; git checkout'
 alias gst='git status' # NOTE: gst will conflict with some smalltalk command
 
 alias git-add='git add -i'
-alias git-branch-and-checkout='git checkout -b'
+alias git-branch-and-checkout='git checkout -b' # gcb -> create a branch from existing branch and checkout. helpful if working on a branch (e.g. master) and should be on another.
 alias git-branch='git branch'
 alias git-checkout='git checkout'
-alias git-commit='git-commit'
+alias git-commit='git commit'
+alias git-create-branch='git-branch-and-checkout' # alternative name for git-create-branch
 alias git-diff-meld='git diff | meld'
 alias git-fetch-merge='git pull'
 alias git-fetch='git fetch'
