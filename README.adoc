@@ -196,3 +196,40 @@ Script `.bash_aliases` sets diff to Meld.
 . Test all this against my Ubuntu machine. I am especially interested in changes to the ls commands referencing color.
 . Are there other commands using _--color_ I have not checked?
 . Diff references meld. Is that what I want? Add to prerequesites section.
+
+[~]➔ type merge-branch-to-master-and-delete
+merge-branch-to-master-and-delete is a function
+merge-branch-to-master-and-delete () 
+{ 
+    FEATURE_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+    git checkout master;
+    git pull;
+    git merge $FEATURE_BRANCH;
+    git push;
+    git push origin --delete $FEATURE_BRANCH;
+    git remote prune origin;
+    git branch | cut -c3- | egrep --color=auto -v "^master$" | egrep --color=auto -v "^post-holiday$" | xargs git branch -D
+}
+
+[magellan]➔ type gup
+gup is a function
+gup () 
+{ 
+    if ! test -n "`git status | grep "nothing to commit"`"; then
+        echo "Please commit your changes first.";
+        return 1;
+    fi;
+    FEATURE_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+    git checkout master;
+    git pull;
+    git checkout $FEATURE_BRANCH;
+    git merge -m "merge with master" master
+}
+
+[~]➔ type gpg
+gpg is aliased to `git pull;gclean'
+[~]➔ type gclean
+gclean is aliased to `prune;gbda'
+[~]➔ type gbda
+gbda is aliased to `git branch | cut -c3- | grep -v "^master$" | grep -v "^post-holiday$" | xargs git branch -D'
+
