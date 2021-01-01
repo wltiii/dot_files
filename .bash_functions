@@ -66,7 +66,7 @@ git-ticket() {
 # the ticket name
 # Ken Williams at Windlogics shared this code
 ########################################################################
-git-commit() {
+git-commit-ticket() {
   x=$(git-ticket); git commit -a -v -m "$x$1"
 }
 
