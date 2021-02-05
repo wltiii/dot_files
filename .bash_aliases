@@ -29,6 +29,9 @@ alias sdkman='sdk'
 alias sudo='sudo -i'
 alias mysudo='sudo -i -E env "PATH=$PATH"'
 alias mob='~/.local/bin/mob'
+# consider making TextEdit plain text by default and unselecting all the "smart" (or all) options
+# for more info, see: https://www.techjunkie.com/textedit-plain-text-mode/
+alias mac-edit='open -a TextEdit'                 # open TextEdit from command line (Mac)
 
 ############################################################################
 # git aliases
