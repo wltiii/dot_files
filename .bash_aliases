@@ -108,7 +108,8 @@ alias xless="xml | less"                      # pipes xml to less - see bash fun
 # Software analysis
 ############################################################################
 alias xray-commit-freq='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r'
-alias xray-top-5='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r | head -5'
+# alias xray-top-5='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r | head -5' # removed in favor of following
+alias xray-top-5='$xray-commit-freq | head -5'
 alias xray-commit-freq-log='git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r > xray-commit-frequency.log'
 
 ############################################################################
