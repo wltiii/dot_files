@@ -34,6 +34,29 @@ alias mob='~/.local/bin/mob'
 alias mac-edit='open -a TextEdit'                 # open TextEdit from command line (Mac)
 
 ############################################################################
+# homebrew aliases
+############################################################################
+alias brew-commands='brew commands'
+alias brew-docs='https://docs.brew.sh'
+alias brew-info-help='brew help info'
+alias brew-info='brew info'
+alias brew-install-help='brew help install'
+alias brew-install='brew install'
+alias brew-list-help='brew help list'
+alias brew-list='brew list'
+alias brew-man-page='man brew'
+alias brew-search-help='brew help search'
+alias brew-search='brew search'
+alias brew-tap-help='brew help tap'
+alias brew-tap='brew tap'
+alias brew-uninstall-help='brew help uninstall'
+alias brew-uninstall='brew uninstall'
+alias brew-update-help='brew help update'
+alias brew-update='brew update'
+alias brew-upgrade-help='brew help upgrade'
+alias brew-upgrade='brew upgrade'
+
+############################################################################
 # docker aliases
 ############################################################################
 alias docker-help-attach='docker --help attach'
@@ -96,6 +119,50 @@ alias docker-run-with-port-map='docker run -p'
 alias docker-start-container='docker start'
 alias docker-stop-container='docker stop'
 alias docker-terminal='docker exec -it'
+
+############################################################################
+# flutter aliases
+############################################################################
+alias flutter-activate-dart-style='flutter pub global activate dart_style'
+alias flutter-activate-fvm='flutter pub global activate fvm'
+alias flutter-beta-channel='flutter channel beta'
+alias flutter-build='flutter build'
+alias flutter-build-help='flutter build -h'
+alias flutter-channel='flutter channel'
+alias flutter-clean='flutter clean'
+alias flutter-config='flutter config'
+alias flutter-config--android-studio='flutter config --android-studio-dir /home/worldwidewilly/android-studio'
+alias flutter-config-android-sdk='flutter config --android-sdk /home/worldwidewilly/android-studio'
+alias flutter-create='flutter create'
+alias flutter-create-help='flutter create --help'
+alias flutter-devices='flutter devices'
+alias flutter-doctor='flutter doctor -v'
+alias flutter-downgrade='flutter downgrade'
+alias flutter-emulators='flutter emulators'
+alias flutter-enable-web='flutter config --enable-web'
+alias flutter-get-packages='flutter packages get'
+alias flutter-get-packages-verbose='flutter packages get -v'
+alias flutter-help='flutter --help'
+alias flutter-packages-help='flutter packages --help -v'
+alias flutter-run='flutter pub run'
+alias flutter-run-chrome='flutter run -d chrome'
+alias flutter-run-chrome-verbose='flutter run -d chrome --verbose'
+alias flutter-run-device-help='flutter run -h'
+alias flutter-run-help='flutter pub run -h'
+alias flutter-run-test-named='flutter pub run test --name='
+alias flutter-run-test-skipped='flutter pub run test --run-skipped'
+alias flutter-run-test-tagged='flutter pub run test --tags='
+alias flutter-run-tests='flutter pub run test'
+alias flutter-stable-channel='flutter channel stable'
+alias flutter-test-help='flutter test --help'
+alias flutter-unit-test='flutter test'
+alias flutter-unit-test-help='flutter test --help'
+alias flutter-unit-test-named='flutter test --name='
+alias flutter-upgrade='flutter upgrade'
+alias flutter-upgrade-help='flutter upgrade -h'
+alias flutter-upgrade-verify='flutter upgrade --verify-only'
+alias flutter-version='flutter --version'
+
 ############################################################################
 # git aliases
 ############################################################################
