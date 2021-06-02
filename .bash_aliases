@@ -172,6 +172,7 @@ alias git-add='git add -i'
 alias git-branch-and-checkout='git checkout -b' # gcb -> create a branch from existing branch and checkout. helpful if working on a branch (e.g. master) and should be on another.
 alias git-branch='git branch'
 alias git-checkout='git checkout'
+alias git-clone='git clone'
 alias git-commit='git commit'
 alias git-create-branch='git-branch-and-checkout' # redirects to alias git-branch-and-checkout
 alias git-diff-meld='git diff | meld'
