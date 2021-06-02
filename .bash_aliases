@@ -175,6 +175,7 @@ alias git-checkout='git checkout'
 alias git-clone='git clone'
 alias git-commit='git commit'
 alias git-create-branch='git-branch-and-checkout' # redirects to alias git-branch-and-checkout
+alias git-delete-other-branches='git branch | cut -c3- | grep -v "^master$" | xargs git branch -D'
 alias git-diff-meld='git diff | meld'
 alias git-fetch-merge='git pull'
 alias git-fetch='git fetch'
@@ -190,7 +191,6 @@ alias git-status='git status'
 alias git-unadd='git reset'
 alias git-update='git pull origin develop'
 alias git-upstreams='git fetch --all; git branch -vv'
-
 ############################################################################
 # MyRepo aliases - requires MyRepos to be installed: https://myrepos.branchable.com/
 ############################################################################

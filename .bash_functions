@@ -71,6 +71,37 @@ git-commit-ticket() {
 }
 
 ########################################################################
+# merge-branch-to-master-and-delete
+# merges the branch to master and deletes the branch
+########################################################################
+merge-branch-to-master-and-delete ()
+{
+    FEATURE_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+    git checkout master;
+    git pull;
+    git merge $FEATURE_BRANCH;
+    git push;
+    git push origin --delete $FEATURE_BRANCH;
+    git remote prune origin;
+    git branch | cut -c3- | egrep --color=auto -v "^master$" | xargs git branch -D
+}
+########################################################################
+# merge-with-master
+# merges master into branch safely (i.e. nothing to commit)
+########################################################################
+merge-with-master ()
+{
+    if ! test -n "`git status | grep "nothing to commit"`"; then
+        echo "Please commit your changes first.";
+        return 1;
+    fi;
+    FEATURE_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+    git checkout master;
+    git pull;
+    git checkout $FEATURE_BRANCH;
+    git merge -m "merge with master" master
+}
+########################################################################
 # Matthew's Git Bash Prompt
 ########################################################################
 
