@@ -37,15 +37,24 @@ findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 
 
 ########################################################################
 # git-apply-changes-to (target-branch)
-# stashes current changes, checks out branch and applies
-# the changes
+#
+# applies changes made to a branch erroneously (i.e. not the desired
+# branch) to the desired branch (target-branch) and reverts the
+# erroneous branch back to HEAD
 ########################################################################
 git-apply-changes-to() {
-  # git fetch --all; git branch -vv; git stash; git checkout $1; git stash pop
+  # Fetch all remotes
   git fetch --all
+  # show sha1 and commit subject line for each head,
+  # along with relationship to upstream branch,
+  # the path of the linked worktree (if any)
+  # and the name of the upstream branch
   git branch -vv
+  # save current state and revert to HEAD commit
   git stash
+  # switch to target-branch
   git checkout $1
+  # apply the stashed changes to target-branch
   git stash pop
 }
 
@@ -87,18 +96,24 @@ merge-branch-to-master-and-delete ()
 }
 ########################################################################
 # merge-with-master
-# merges master into branch safely (i.e. nothing to commit)
+# merges latest master into branch safely (i.e. nothing to commit)
 ########################################################################
 merge-with-master ()
 {
+    # make sure all changes are committed
     if ! test -n "`git status | grep "nothing to commit"`"; then
         echo "Please commit your changes first.";
         return 1;
     fi;
+    # get name of branch
     FEATURE_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+    # checkout master
     git checkout master;
+    # update master with latest from remote
     git pull;
+    # checkout branch
     git checkout $FEATURE_BRANCH;
+    # merge master into branch
     git merge -m "merge with master" master
 }
 ########################################################################
