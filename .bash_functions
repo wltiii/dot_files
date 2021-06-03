@@ -36,11 +36,11 @@ xml() {
 findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 not found"; }
 
 ########################################################################
-# copy-to-branch
+# git-apply-changes-to (target-branch)
 # stashes current changes, checks out branch and applies
 # the changes
 ########################################################################
-copy-to-branch() {
+git-apply-changes-to() {
   # git fetch --all; git branch -vv; git stash; git checkout $1; git stash pop
   git fetch --all
   git branch -vv
