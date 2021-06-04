@@ -19,16 +19,17 @@ alias vdir='\ls --color=auto --format=long'
 ############################################################################
 # tool aliases
 ############################################################################
-alias vi=vim
-alias more=less
-alias grep='egrep --color=auto'               # show differences in colour
-alias fgrep='fgrep --color=auto'              # show differences in colour
-# alias grep='grep --color'                   # show differences in colour
-alias sdkman='sdk'
 #alias sudo='sudo -E env "PATH=$PATH"'
-alias sudo='sudo -i'
-alias mysudo='sudo -i -E env "PATH=$PATH"'
+alias fgrep='fgrep --color=auto'              # show differences in colour
+alias grep='egrep --color=auto'               # show differences in colour
+# alias grep='grep --color'                   # show differences in colour
+alias idea='intellij-idea-community .'
 alias mob='~/.local/bin/mob'
+alias more=less
+alias mysudo='sudo -i -E env "PATH=$PATH"'
+alias sdkman='sdk'
+alias sudo='sudo -i'
+alias vi=vim
 # consider making TextEdit plain text by default and unselecting all the "smart" (or all) options
 # for more info, see: https://www.techjunkie.com/textedit-plain-text-mode/
 alias mac-edit='open -a TextEdit'                 # open TextEdit from command line (Mac)
