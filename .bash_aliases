@@ -27,7 +27,6 @@ alias idea='intellij-idea-community .'
 alias mob='~/.local/bin/mob'
 alias more=less
 alias mysudo='sudo -i -E env "PATH=$PATH"'
-alias sdkman='sdk'
 alias sudo='sudo -i'
 alias vi=vim
 # consider making TextEdit plain text by default and unselecting all the "smart" (or all) options
@@ -228,6 +227,11 @@ alias mr-register='mr "$@" register'
 alias mr-status='mr "$@" status'
 alias mr-update-all='mr -j5 update'
 alias mr-update='mr "$@" update'
+
+############################################################################
+# sdkman aliases - requires that SDKMAN be installed:
+############################################################################
+alias sdkman='sdk'
 
 ############################################################################
 # misc command aliases
