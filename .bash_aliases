@@ -166,6 +166,24 @@ alias flutter-version='flutter --version'
 ############################################################################
 # git aliases
 ############################################################################
+alias fvm-help='fvm --help'
+alias fvm-version='fvm --version'
+alias fvm-config='fvm config'
+alias fvm-config-help='fvm config --help'
+alias fvm-dart='fvm dart'
+alias fvm-doctor='fvm doctor'
+alias fvm-flavor='fvm flavor'
+alias fvm-flutter='fvm flutter'
+alias fvm-global='fvm global'
+alias fvm-install='fvm install'
+alias fvm-list='fvm list'
+alias fvm-releases='fvm releases'
+alias fvm-remove='fvm remove'
+alias fvm-spawn='fvm spawn'
+alias fvm-use='fvm use'
+############################################################################
+# git aliases
+############################################################################
 alias checkout='git fetch --all; git checkout'
 alias git-add='git add -i'
 alias git-branch-and-checkout='git checkout -b' # gcb -> create a branch from existing branch and checkout. helpful if working on a branch (e.g. master) and should be on another.
