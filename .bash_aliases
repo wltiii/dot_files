@@ -3,6 +3,22 @@
 # application.  To override the alias instruction use a \ before, ie
 # \rm will call the real rm not the alias.
 ############################################################################
+# change directory aliases
+############################################################################
+alias up='cd ..'
+alias ..='up'
+alias up2='cd ../..'
+alias ...='up2'
+alias up3='cd ../../..'
+alias ....='up3'
+alias up4='cd ../../../..'
+alias .....='up4'
+alias up5='cd ../../../../..'
+alias ......='up5'
+alias up6='cd ../../../../../..'
+alias .......='up6'
+
+############################################################################
 # list directory aliases
 ############################################################################
 alias l='\ls -CF'                              # all but . and .. in columns
@@ -239,12 +255,6 @@ alias sdkman='sdk'
 # alias refresh='source ~/.bash_profile' # this does not work. see README.
 # alias work='cd ~/workspace'                 # removed. use groovy script 'work' in workman project
 # alias less='less -r'                        # raw control characters
-alias .......='up6'
-alias ......='up5'
-alias .....='up4'
-alias ....='up3'
-alias ...='up2'
-alias ..='up'
 alias clr='clear'
 alias filtered-aliases='alias | grep "$@"'
 alias functions='compgen -A function'
@@ -259,12 +269,6 @@ alias q='exit'
 alias source-profile='source ~/.bash_profile'
 alias trail='tail -f'
 alias underscoreit='pbpaste | sed s/\ /_/g  | tr -d "\n" | pbcopy'
-alias up='cd ..'
-alias up2='cd ../..'
-alias up3='cd ../../..'
-alias up4='cd ../../../..'
-alias up5='cd ../../../../..'
-alias up6='cd ../../../../../..'
 alias whence='type -a'                        # where, of a sort
 alias xless="xml | less"                      # pipes xml to less - see bash function xml()
 
