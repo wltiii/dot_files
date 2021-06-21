@@ -247,7 +247,23 @@ alias mr-update='mr "$@" update'
 ############################################################################
 # sdkman aliases - requires that SDKMAN be installed:
 ############################################################################
-alias sdkman='sdk'
+alias sdkman='sdk help'
+alias sdk-broadcast='sdk broadcast'
+alias sdk-current='sdk current'
+alias sdk-default='sdk default'
+alias sdk-env='sdk env'
+alias sdk-flush='sdk flush'
+alias sdk-help='sdk help'
+alias sdk-home='sdk home'
+alias sdk-install='sdk install'
+alias sdk-list='sdk list'
+alias sdk-offline='sdk offline'
+alias sdk-selfupdate='sdk selfupdate'
+alias sdk-update='sdk update'
+alias sdk-update='sdk update'
+alias sdk-upgrade='sdk upgrade'
+alias sdk-use='sdk use'
+alias sdk-version='sdk version'
 
 ############################################################################
 # misc command aliases
@@ -262,15 +278,19 @@ alias formatjson='pbpaste|json|pbcopy'
 alias hist='history | grep -i'                # search history for a command
 alias jless="json | less"                     # pipes json to less - see bash function json()
 #alias mapitup='pbpaste | json | sed s/\"/\'/g | sed -E s/\'\(.*\)\':/\\1:/g | sed s/\{/\[/g | sed s/\}/\]/g | pbcopy'
-alias new-profile='~/workspace/dot_files/install.sh;source-profile'
 alias path='echo -e ${PATH//:/\\n}'           # pretty path
 alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
 alias q='exit'
-alias source-profile='source ~/.bash_profile'
 alias trail='tail -f'
 alias underscoreit='pbpaste | sed s/\ /_/g  | tr -d "\n" | pbcopy'
 alias whence='type -a'                        # where, of a sort
 alias xless="xml | less"                      # pipes xml to less - see bash function xml()
+
+############################################################################
+# profile management
+############################################################################
+alias new-profile='~/workspace/dot_files/install.sh;source-profile'
+alias source-profile='source ~/.bash_profile'
 
 ############################################################################
 # Software analysis
