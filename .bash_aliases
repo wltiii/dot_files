@@ -179,7 +179,7 @@ alias flutter-upgrade-verify='flutter upgrade --verify-only'
 alias flutter-version='flutter --version'
 
 ############################################################################
-# git aliases
+# flutter version manager (fvm) aliases
 ############################################################################
 alias fvm-help='fvm --help'
 alias fvm-version='fvm --version'
