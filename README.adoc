@@ -192,7 +192,7 @@ Script `.bash_aliases` sets diff to Meld.
 . Aliases _commit-freq_ and _commit-freq-log_ should be functions to make them more robust.
 . There is no .bash_history file in this collection. It could potentially be usable. Perhaps a stubbed version could be created.
 . Document further - maybe
-. Fix installation script to source bash_profile
+. Fix installation script to source bash_profile - not really possible. Maybe open new shell and close current? That would be ugly.
 . Test all this against my Ubuntu machine. I am especially interested in changes to the ls commands referencing color.
 . Are there other commands using _--color_ I have not checked?
 . Diff references meld. Is that what I want? Add to prerequesites section.

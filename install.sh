@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # copies `bash` profile files to home directory, backing up
 # existing dot files to the dot_files_backup dir in users home
