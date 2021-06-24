@@ -3,6 +3,7 @@
 # Code Xray - Code Analysis based upon Adam Tornhill's "Software Design X-Rays: Fix Technical Debt With Behavioral Code Analysis"
 #
 
+### TODO add multiple parameters -> maybe especially for cloc
 xrayCode() {
   ARG=$1
 
@@ -17,6 +18,8 @@ xrayCode() {
       git log --format=format: --name-only | egrep -v "^$" | sort | uniq -c | sort -r | head -5
       ;;
     "cloc")
+      cloc ./ --by-file --csv --quiet
+    "cloc-top")
       cloc ./ --by-file --csv --quiet --report-file=xray-lines-by-file.csv
       ;;
     *)
