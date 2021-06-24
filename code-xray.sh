@@ -19,6 +19,7 @@ xrayCode() {
       ;;
     "cloc")
       cloc ./ --by-file --csv --quiet
+      ;;
     "cloc-top")
       cloc ./ --by-file --csv --quiet --report-file=xray-lines-by-file.csv
       ;;

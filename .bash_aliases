@@ -298,8 +298,8 @@ alias source-profile='source ~/.bash_profile'
 alias xray=". ~/workspace/dot_files/code-xray.sh"
 alias xray-log=". ~/workspace/dot_files/code-xray.sh log"
 alias xray-top=". ~/workspace/dot_files/code-xray.sh top"
-alias cloc=". ~/workspace/dot_files/code-xray.sh cloc"
-alias cloc=". ~/workspace/dot_files/code-xray.sh cloc-top"
+alias cloc-no-log=". ~/workspace/dot_files/code-xray.sh cloc"
+alias cloc-top=". ~/workspace/dot_files/code-xray.sh cloc-top"
 
 ############################################################################
 # Interactive operation...
