@@ -36,6 +36,15 @@ xml() {
 findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 not found"; }
 
 ########################################################################
+# flutter-create-null-safe(project-name)
+########################################################################
+flutter-create-null-safe() {
+    flutter create $1
+    cd $1
+    dart migrate --apply-changes
+    idea .
+}
+########################################################################
 # git-apply-changes-to (target-branch)
 #
 # applies changes made to a branch erroneously (i.e. not the desired
