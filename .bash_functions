@@ -42,6 +42,7 @@ flutter-create-null-safe() {
     flutter create $1
     cd $1
     dart migrate --apply-changes
+    work --save $1
     idea .
 }
 ########################################################################

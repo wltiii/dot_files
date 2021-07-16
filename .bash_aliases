@@ -1,7 +1,16 @@
-# If these are enabled they will be used instead of any instructions
+############################################################################
+#
+# If these are enabled they will be used instead of any commands
 # they may mask.  For example, alias rm='rm -i' will mask the rm
 # application.  To override the alias instruction use a \ before, ie
 # \rm will call the real rm not the alias.
+#
+############################################################################
+# profile management - commands to help with updating changes to dot_files
+############################################################################
+alias new-profile='~/workspace/dot_files/install.sh;source-profile'
+alias source-profile='source ~/.bash_profile'
+
 ############################################################################
 # change directory aliases
 ############################################################################
@@ -220,6 +229,8 @@ alias git-merge-to-master-and-delete='merge-branch-to-master-and-delete'
 alias git-merge-with-master='merge-with-master'
 alias git-merge='git merge'
 alias git-pull='git pull'
+alias git-push-new-origin='git push --set-upstream origin'
+alias git-push-new-origin-help='pushes to a new remote on origin'
 alias git-remote='git remote get-url origin'
 alias git-reset='git reset'
 alias git-set-upstream='git branch --set-upstream'
@@ -285,12 +296,6 @@ alias trail='tail -f'
 alias underscoreit='pbpaste | sed s/\ /_/g  | tr -d "\n" | pbcopy'
 alias whence='type -a'                        # where, of a sort
 alias xless="xml | less"                      # pipes xml to less - see bash function xml()
-
-############################################################################
-# profile management
-############################################################################
-alias new-profile='~/workspace/dot_files/install.sh;source-profile'
-alias source-profile='source ~/.bash_profile'
 
 ############################################################################
 # Software analysis
