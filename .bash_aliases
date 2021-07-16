@@ -289,6 +289,7 @@ alias formatjson='pbpaste|json|pbcopy'
 alias hist='history | grep -i'                # search history for a command
 alias jless="json | less"                     # pipes json to less - see bash function json()
 #alias mapitup='pbpaste | json | sed s/\"/\'/g | sed -E s/\'\(.*\)\':/\\1:/g | sed s/\{/\[/g | sed s/\}/\]/g | pbcopy'
+alias myip='curl ifconfig.co/'
 alias path='echo -e ${PATH//:/\\n}'           # pretty path
 alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
 alias q='exit'
