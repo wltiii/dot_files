@@ -62,3 +62,4 @@ export PATH=$PATH:$HOME/snap/flutter/common/flutter/.pub-cache/bin
 #export PATH=$PATH:`pwd`/flutter/bin
 #export PATH=$PATH:`pwd`/bin/cache/dart-sdk/bin
 #export PATH=$PATH:`pwd`/.pub-cache/bin
+export PATH="$PATH":"$HOME/.pub-cache/bin"
