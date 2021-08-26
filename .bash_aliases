@@ -211,6 +211,7 @@ alias fvm-use='fvm use'
 alias checkout='git fetch --all; git checkout'
 alias git-add='git add -i'
 alias git-branch-and-checkout='git checkout -b' # gcb -> create a branch from existing branch and checkout. helpful if working on a branch (e.g. master) and should be on another.
+alias git-branch-and-checkout-help='USAGE: `git-branch-and-checkout new-branch`. DESCRIPTION: Creates a branch from current branch and checks it out. This is helpful if working on a branch (e.g. master), you have made changes that should be on another (new) branch.'
 alias git-branch='git branch'
 alias git-checkout='git checkout'
 alias git-clone='git clone'
