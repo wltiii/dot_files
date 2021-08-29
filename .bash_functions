@@ -96,8 +96,11 @@ git-commit-ticket() {
 merge-branch-to-master-and-delete ()
 {
     FEATURE_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+    # checkout master
     git checkout master;
+    # update master with latest from remote
     git pull;
+    # merge branch
     git merge $FEATURE_BRANCH;
     git push;
     git push origin --delete $FEATURE_BRANCH;
@@ -105,10 +108,28 @@ merge-branch-to-master-and-delete ()
     git branch | cut -c3- | egrep --color=auto -v "^master$" | xargs git branch -D
 }
 ########################################################################
-# merge-with-master
+# merge-branch-to-main-and-delete
+# merges the branch to main and deletes the branch
+########################################################################
+merge-branch-to-main-and-delete ()
+{
+    FEATURE_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+    # checkout main
+    git checkout main;
+    # update main with latest from remote
+    git pull;
+    # merge branch
+    git merge $FEATURE_BRANCH;
+    git push;
+    git push origin --delete $FEATURE_BRANCH;
+    git remote prune origin;
+    git branch | cut -c3- | egrep --color=auto -v "^main$" | xargs git branch -D
+}
+########################################################################
+# safe-merge-master-into
 # merges latest master into branch safely (i.e. nothing to commit)
 ########################################################################
-merge-with-master ()
+safe-merge-master-into ()
 {
     # make sure all changes are committed
     if ! test -n "`git status | grep "nothing to commit"`"; then
@@ -125,6 +146,28 @@ merge-with-master ()
     git checkout $FEATURE_BRANCH;
     # merge master into branch
     git merge -m "merge with master" master
+}
+########################################################################
+# merge-with-main
+# merges latest main into branch safely (i.e. nothing to commit)
+########################################################################
+safe-merge-main-into ()
+{
+    # make sure all changes are committed
+    if ! test -n "`git status | grep "nothing to commit"`"; then
+        echo "Please commit your changes first.";
+        return 1;
+    fi;
+    # get name of branch
+    FEATURE_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+    # checkout main
+    git checkout main;
+    # update main with latest from remote
+    git pull;
+    # checkout branch
+    git checkout $FEATURE_BRANCH;
+    # merge main into branch
+    git merge -m "merge with main" main
 }
 ########################################################################
 # Matthew's Git Bash Prompt
