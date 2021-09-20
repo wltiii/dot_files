@@ -53,6 +53,8 @@ alias mob='~/.local/bin/mob'
 alias more=less
 alias mysudo='sudo -i -E env "PATH=$PATH"'
 alias sudo='sudo -i'
+alias sudo-edit='sudoedit'
+alias sudo-edit-help='printf "USAGE: sudo-edit <file>\nDESCRIPTION: edits files as another user using the default editor (configurable).\nFor example, use this rather than *sudo gedit*.\nSEE: https://ubuntuforums.org/showthread.php?t=2459392\n"'
 alias vi=vim
 # consider making TextEdit plain text by default and unselecting all the "smart" (or all) options
 # for more info, see: https://www.techjunkie.com/textedit-plain-text-mode/
