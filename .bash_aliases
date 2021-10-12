@@ -188,6 +188,8 @@ alias flutter-upgrade='flutter upgrade'
 alias flutter-upgrade-help='flutter upgrade -h'
 alias flutter-upgrade-verify='flutter upgrade --verify-only'
 alias flutter-version='flutter --version'
+alias flutter-remove='fvm flutter pub remove'
+alias flutter-remove-help='printf "\nUSAGE: flutter-remove <package>\nDESCRIPTION: Removes package from project.\nNOTE: This assumes the project is managed through Flutter Version Manager.\n\n"'
 
 ############################################################################
 # flutter version manager (fvm) aliases
