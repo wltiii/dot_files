@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# start my day at medZero
+#
+# 1) update all repos in this directory
+#    requires credentials having been stored. 
+#    see: https://www.shellhacks.com/git-config-username-password-store-credentials/
+
+clientHome="/home/worldwidewilly/workspace/medzero"
+
+# update repos
+
+for i in `\ls -CFd $clientHome/com.medzero*`
+do
+  cd $i
+  echo $PWD
+  git fetch --all
+  sleep 2
+  git pull
+  sleep 2
+  cd $clientHome
+done

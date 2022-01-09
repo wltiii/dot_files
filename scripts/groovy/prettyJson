@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+echo $#
+echo $@
+
+  if [ "$#" -eq 1 ]; then
+    echo "println new groovy.json.JsonSlurper().parse(System.in).$@"
+    groovyclient -e "println new groovy.json.JsonSlurper().parse(System.in).$@"
+  else
+    echo "println groovy.json.JsonOutput.prettyPrint(System.in.text)"
+    groovyclient -e "println groovy.json.JsonOutput.prettyPrint(System.in.text)"
+  fi
+  
+echo "done."
+

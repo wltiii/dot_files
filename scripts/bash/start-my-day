@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# start my day with current client
+#
+# 1) update all repos in this directory
+#    requires credentials having been stored. 
+#    see: https://www.shellhacks.com/git-config-username-password-store-credentials/
+
+clientHome="/home/worldwidewilly/workspace/clients/shuk/*"
+
+# update repos
+
+for i in `\ls -CFd $clientHome`
+do
+  cd $i
+  echo $PWD
+  git fetch --all
+  sleep 2
+  git pull
+  sleep 2
+  cd $clientHome
+done
+
+work
+

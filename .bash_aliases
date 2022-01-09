@@ -59,6 +59,7 @@ alias vi=vim
 # consider making TextEdit plain text by default and unselecting all the "smart" (or all) options
 # for more info, see: https://www.techjunkie.com/textedit-plain-text-mode/
 alias mac-edit='open -a TextEdit'                 # open TextEdit from command line (Mac)
+alias adb='~/Android/Sdk/platform-tools/adb'
 
 ############################################################################
 # homebrew aliases
