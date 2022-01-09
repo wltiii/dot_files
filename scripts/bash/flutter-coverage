@@ -1,0 +1,13 @@
+#
+# Generates Flutter converage statistics and opens results in browser
+#
+#
+# USAGE: run from project root
+
+
+# run flutter coverage (lcov)
+flutter test --coverage
+# generate html
+genhtml coverage/lcov.info -o coverage/html
+# launch firefox browser
+firefox coverage/html/index.html

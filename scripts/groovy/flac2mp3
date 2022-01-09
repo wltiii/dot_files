@@ -1,0 +1,105 @@
+#!/usr/bin/env groovy
+/*
+See testEntityBuilder.groovy for cli examples
+@Grapes(
+@Grab(group='org.mod4j.org.apache.commons', module='cli', version='1.0.0')
+)
+
+ */
+import groovy.io.FileType
+import java.time.LocalDate
+import java.time.LocalDateTime
+
+MUSIC_ROOT_PATH = '/home/worldwidewilly/Music'
+ARCHIVE_PATH = "${MUSIC_ROOT_PATH}/archive"
+ALBUM_RIP_PATH = 'album-rip'
+CD_RIP_PATH = 'cd-rip'
+TRANSFER_PATH = '/home/worldwidewilly/Dropbox/Music/transfer'
+LOGGER = new File("${ARCHIVE_PATH}/logs/flac2mp3-${LocalDate.now().toString()}.log")
+
+def log(message) {
+    println "${LocalDateTime.now().toString()} ${message}"
+    LOGGER << "${LocalDateTime.now().toString()} ${message}\n"
+}
+def parseNameFromFlac(flac) {
+    log "parseNameFromFlac ${flac.name}"
+
+    flac.name - '.flac'
+}
+def mp3FromFlac(flac, transferDir) {
+    log "mp3FromFlac ${flac.absolutePath}, ${transferDir}"
+
+    def name = parseNameFromFlac(flac)
+    def path_to_song = flac.parentFile.absolutePath
+
+    def cmd = ['/bin/bash', '-c', /flac -cd "${name}".flac | lame -b 320 -q 0 - "${transferDir}\/${name}".mp3/]
+    log "mp3FromFlac: cmd: ${cmd}"
+
+    proc = cmd.execute(null, new File(path_to_song))
+    proc.waitFor()
+    log "mp3FromFlac: OUT: ${proc.in.text}"
+    log "mp3FromFlac: ERROR: ${proc.err.text}"
+
+    // return mp3
+    //log "mp3FromFlac: creating file ${path_to_song}/${name}.mp3"
+    def mp3 = new File("${transferDir}/${name}.mp3")
+    log "mp3FromFlac: does ${transferDir}/${name}.mp3 exist? ${mp3.exists()}"
+    mp3
+}
+def makeDir(path) {
+    log "makeDir: ${path}"
+
+    def dir = new File("${path}")
+    def exists = dir.exists() ? true : dir.mkdirs()
+    log "makeDir: exists? ${exists}"
+    dir
+}
+def moveTo(sourceDir, song) {
+    log "moveTo ${sourceDir.absolutePath}, ${song.name}"
+
+    def targetFile = new File(sourceDir, song.getName())
+    log "mp3FromFlac: exists? ${targetFile.exists()} -> expecting false"
+    log "moveTo targetFile: ${targetFile.absolutePath}"
+    song.renameTo(targetFile)
+    log "mp3FromFlac: exists? ${targetFile.exists()} -> expecting true"
+    log "mp3FromFlac: song path is ${song.exists()}"
+}
+def flac2mp3(path_to_rip) {
+    log "flac2mp3(${path_to_rip})"
+
+    def sourceDir = new File("${MUSIC_ROOT_PATH}/${path_to_rip}")
+
+    sourceDir.eachFileRecurse(FileType.FILES) { song ->
+        log "flac2mp3: file ${song.name}"
+        if(song.name.endsWith('.flac')) {
+            log "flac2mp3: processing flac: ${song.absolutePath}"
+
+            def pathSuffix  = (song.absolutePath - "${MUSIC_ROOT_PATH}/${path_to_rip}") - song.name
+
+            def transferDir = makeDir("${TRANSFER_PATH}/${pathSuffix}")
+            def archiveDir = makeDir("${ARCHIVE_PATH}/${path_to_rip}${pathSuffix}")
+
+            def mp3 = mp3FromFlac(song, transferDir)
+            
+            log "TODO: copy tags from flac to mp3 - see http://www.jthink.net/jaudiotagger/ for one possible solution" 
+
+            //TODO: copy tags from flac to mp3 - see http://www.jthink.net/jaudiotagger/ for one possible solution
+
+            //moveTo(transferDir, mp3)
+            moveTo(archiveDir, song)
+        }
+    }
+
+    // delete source directories
+    sourceDir.eachFile FileType.DIRECTORIES, { dir ->
+        log "flac2mp3: DELETING ${dir.name}"
+        log "flac2mp3: DELETING ${dir.absolutePath}"
+        dir.deleteDir()
+    }
+}
+
+println 'start...'
+flac2mp3(ALBUM_RIP_PATH)
+flac2mp3(CD_RIP_PATH)
+println '...done.'
+

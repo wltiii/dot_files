@@ -1,0 +1,147 @@
+#!/usr/bin/env groovy
+/*
+This creates two pseudo json files, converting m3u files,
+normalizing data, etc., so that they could then be compared
+easily in a compare tool. This is to identify those songs
+that exist on my old ipod that do not exist in my current
+itunes library.  
+ */
+import groovy.io.FileType
+import java.time.LocalDate
+import java.time.LocalDateTime
+
+OLD_IPOD_M3U_FILE = '/home/worldwidewilly/Music/old-ipod/all-old-ipod-songs.m3u'
+NEW_IPOD_M3U_FILE = '/home/worldwidewilly/Dropbox/Music/Playlist.m3u'
+OLD_IPOD_JSON_FILE = '/home/worldwidewilly/Music/old-ipod/old-ipod-songs.json'
+NEW_IPOD_JSON_FILE = '/home/worldwidewilly/Music/old-ipod/new-ipod-songs.json'
+ARCHIVE_PATH = '/home/worldwidewilly/Music/archive'
+LOGGER = new File("${ARCHIVE_PATH}/logs/m3uToJSON-${LocalDate.now().toString()}.log")
+
+NAME_FIXES = [ 
+    [ badlyFormed: 'new york ska-jazz ensemble', corrected: 'new york ska jazz ensemble' ], 
+    [ badlyFormed: 'vollenweider, andreas', corrected: 'andreas vollenweider' ], 
+    [ badlyFormed: 'sleater-kinney', corrected: 'sleater kinney' ], 
+    [ badlyFormed: 'bachman-turner overdrive', corrected: 'bachman turner overdrive' ], 
+    [ badlyFormed: 'king, b. b.', corrected: 'b. b. king' ], 
+    [ badlyFormed: 'beck, jeff', corrected: 'jeff beck' ], 
+    [ badlyFormed: 'beethoven, ludwig van', corrected: 'ludwig van beethoven' ], 
+    [ badlyFormed: 'hutcherson, bobby w-billy mitchell', corrected: 'bobby hutcherson w/billy mitchell' ], 
+    [ badlyFormed: 'paul kantner - jefferson starship', corrected: 'paul kantner/jefferson starship' ], 
+    [ badlyFormed: 'bowie, david', corrected: 'david bowie' ], 
+    [ badlyFormed: 'cale, j.j. &  clapton, eric', corrected: 'j.j. cale & eric clapton' ], 
+    [ badlyFormed: 'clapton, eric', corrected: 'eric clapton' ], 
+    [ badlyFormed: 'dylan, bob', corrected: 'bob dylan' ], 
+    [ badlyFormed: "b-52's", corrected: "b 52's" ], 
+    [ badlyFormed: 'guy, buddy', corrected: 'buddy guy' ], 
+    [ badlyFormed: 'feldman, vic w-buddy defranco', corrected: 'vic feldman w/buddy defranco' ], 
+    [ badlyFormed: 'buchanan, roy', corrected: 'roy buchanan' ], 
+    [ badlyFormed: 'burton, gary w-the new stan getz quartet', corrected: 'gary burton w/the new stan getz quartet' ], 
+    [ badlyFormed: 'cale, j.j.', corrected: 'j.j. cale' ], 
+    [ badlyFormed: 'stevens, cat', corrected: 'cat stevens' ], 
+    [ badlyFormed: 'hyams, marjorie w-the george shearing quintet', corrected: 'hyams, marjorie w/the george shearing quintet' ], 
+    [ badlyFormed: 'davis, miles', corrected: 'miles davis' ], 
+    [ badlyFormed: 'ellington, duke', corrected: 'duke ellington' ], 
+    [ badlyFormed: 'john, elton', corrected: 'elton john' ], 
+    [ badlyFormed: 'zappa, frank', corrected: 'frank zappa' ], 
+    [ badlyFormed: 'jackson, milt w-the oscar peterson trio', corrected: 'milt jackson w/the oscar peterson trio' ], 
+    [ badlyFormed: 'matthews, dave band', corrected: 'dave matthews band' ], 
+    [ badlyFormed: 'orchestre symphonique de montreal - dutoit', corrected: 'orchestre symphonique de montreal / dutoit' ], 
+    [ badlyFormed: 'lennon, john', corrected: 'john lennon' ], 
+    [ badlyFormed: 'winter, johnny', corrected: 'johnny winter' ], 
+    [ badlyFormed: 'jordan, stanley', corrected: 'stanley jordan' ], 
+    [ badlyFormed: 'burton, gary w-the new stan getz quartet', corrected: 'burton, gary w/the new stan getz quartet' ], 
+    [ badlyFormed: 'redbone, leon', corrected: 'leon redbone' ], 
+    [ badlyFormed: 'mayer, steven', corrected: 'steven mayer' ], 
+    [ badlyFormed: 'mcfarland, gary w-bob brookmeyer', corrected: 'gary mcfarland w/bob brookmeyer' ], 
+    [ badlyFormed: 'young, neil', corrected: 'neil young' ], 
+    [ badlyFormed: 'nelson, willie', corrected: 'willie nelson' ], 
+    [ badlyFormed: 'newman, randy', corrected: 'randy newman' ], 
+    [ badlyFormed: 'redding, otis', corrected: 'otis redding' ], 
+    [ badlyFormed: 'johnson, robert', corrected: 'robert johnson' ], 
+    [ badlyFormed: 'starr, ringo', corrected: 'ringo starr' ], 
+    [ badlyFormed: 's-tone inc', corrected: 's tone inc' ], 
+    [ badlyFormed: 'u-w eau clair jazz ensemble i', corrected: 'u w eau clair jazz ensemble i' ], 
+    [ badlyFormed: 'zevon, warren', corrected: 'warren zevon' ], 
+    [ badlyFormed: 'westerberg, paul', corrected: 'paul westerberg' ], 
+    [ badlyFormed: 'winwood, steve', corrected: 'steve winwood' ], 
+    [ badlyFormed: 'wonder, stevie', corrected: 'stevie wonder' ], 
+    [ badlyFormed: 'yes - 000 - yes', corrected: 'yes' ], 
+]
+
+
+def log(message) {
+    LOGGER << "${LocalDateTime.now().toString()} ${message}\n"
+}
+def correctName(string) {
+    log "DEBUG: correctName(${string})"
+    
+    string = string.toLowerCase()
+
+    for (nameFix in NAME_FIXES) {
+        if (string.contains(nameFix.badlyFormed)) {
+            log "DEBUG: correcting ${string}" 
+            string = string.replaceAll("(?i)" + nameFix.badlyFormed, nameFix.corrected)
+            log "DEBUG: corrected string is ${string}"
+        }
+    }
+    string
+}
+def normalize(string) {
+    log "DEBUG: normalize($string)"
+    
+    def cleaned = string.trim().toLowerCase()
+    cleaned.endsWith(', the') ? "the ${cleaned - ', the'}" : cleaned
+}
+def splitArtistFromSong(string, songFirst) {
+    log "DEBUG: splitArtistFromSong($string, $songFirst)"
+    
+    if (songFirst) {
+        def splitAt = string.lastIndexOf('-')
+        [artist: normalize(string.substring(splitAt + 1)), song: normalize(string.substring(0, splitAt))]
+    }
+    else {
+        def splitAt = string.indexOf('-')
+        [artist: normalize(string.substring(0, splitAt)), song: normalize(string.substring(splitAt + 1))]
+    }
+}
+def m3uToJSON(m3ufile, artistIdx, songIdx, outFile) {
+    log "DEBUG: m3uToJSON(${m3ufile})"
+    
+    def errors = 0
+    def input = 0
+    def output = 0
+    
+    new File(outFile).withWriter { out ->
+    
+        new File(m3ufile).eachLine { m3u, linenum ->
+            input++
+            log "DEBUG: m3u=${m3u}"
+            if (m3u.size()) {
+                def line = m3u.split(/,/, 2)
+                log "DEBUG: line=${line}"
+                log "DEBUG: line.size=${line.size()}"
+                if (line.size() == 2) {
+                    def parsed = splitArtistFromSong(correctName(line[1]), artistIdx)
+//                    log "DEBUG: parsed.size=${parsed.size()}"
+                    log "DEBUG: parsed=${parsed}"
+                    
+                    out.write "{ artist: ${parsed['artist']}, song: ${parsed['song']} }"
+                    out.write "\n"
+                    output++
+                }
+                else {
+                    log "ERROR: unable to parse at ${linenum}. Line=${line}"
+                    errors++
+                }
+            }
+        }
+    }
+    
+    println "INPUT = $input"
+    println "OUTPUT = $output"
+    println "ERRORS = $errors"
+}
+
+
+m3uToJSON(OLD_IPOD_M3U_FILE, 0, 1, OLD_IPOD_JSON_FILE)
+m3uToJSON(NEW_IPOD_M3U_FILE, 1, 0, NEW_IPOD_JSON_FILE)

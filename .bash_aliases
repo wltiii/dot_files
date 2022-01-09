@@ -53,10 +53,13 @@ alias mob='~/.local/bin/mob'
 alias more=less
 alias mysudo='sudo -i -E env "PATH=$PATH"'
 alias sudo='sudo -i'
+alias sudo-edit='sudoedit'
+alias sudo-edit-help='printf "USAGE: sudo-edit <file>\nDESCRIPTION: edits files as another user using the default editor (configurable).\nFor example, use this rather than *sudo gedit*.\nSEE: https://ubuntuforums.org/showthread.php?t=2459392\n"'
 alias vi=vim
 # consider making TextEdit plain text by default and unselecting all the "smart" (or all) options
 # for more info, see: https://www.techjunkie.com/textedit-plain-text-mode/
 alias mac-edit='open -a TextEdit'                 # open TextEdit from command line (Mac)
+alias adb='~/Android/Sdk/platform-tools/adb'
 
 ############################################################################
 # homebrew aliases
@@ -186,6 +189,8 @@ alias flutter-upgrade='flutter upgrade'
 alias flutter-upgrade-help='flutter upgrade -h'
 alias flutter-upgrade-verify='flutter upgrade --verify-only'
 alias flutter-version='flutter --version'
+alias flutter-remove='fvm flutter pub remove'
+alias flutter-remove-help='printf "\nUSAGE: flutter-remove <package>\nDESCRIPTION: Removes package from project.\nNOTE: This assumes the project is managed through Flutter Version Manager.\n\n"'
 
 ############################################################################
 # flutter version manager (fvm) aliases
@@ -211,6 +216,7 @@ alias fvm-use='fvm use'
 alias checkout='git fetch --all; git checkout'
 alias git-add='git add -i'
 alias git-branch-and-checkout='git checkout -b' # gcb -> create a branch from existing branch and checkout. helpful if working on a branch (e.g. master) and should be on another.
+alias git-branch-and-checkout-help='printf "USAGE: git-branch-and-checkout new-branch\nDESCRIPTION: Creates a branch from current branch and checks it out. This is helpful if working on a branch (e.g. master), you have made changes that should be on another (new) branch.\n"'
 alias git-branch='git branch'
 alias git-checkout='git checkout'
 alias git-clone='git clone'
@@ -223,17 +229,24 @@ alias git-diff-meld='git diff | meld'
 alias git-fetch-merge='git pull'
 alias git-fetch='git fetch'
 alias git-list-all='git branch -a'
+alias git-list-all-detail='git branch -vva'
+alias git-list-local='git branch'
 alias git-list-remotes='git branch -r'
 alias git-merge-dev='git merge origin/develop'
+alias git-merge-to-main-and-delete='merge-branch-to-main-and-delete'
+alias git-merge-to-main-and-delete-help='printf "USAGE: git-merge-to-main-and-delete\nDESCRIPTION: merges the branch to main and deletes the branch\n"'
 alias git-merge-to-master-and-delete='merge-branch-to-master-and-delete'
-alias git-merge-with-master='merge-with-master'
+alias git-safe-merge-main-into='safe-merge-main-into'
+alias git-safe-merge-main-into-help='printf "USAGE: git-safe-merge-main-into\nDESCRIPTION: merges latest main into branch safely (i.e. nothing to commit)\n"'
+alias git-safe-merge-master-into='safe-merge-master-into'
 alias git-merge='git merge'
+alias git-migrate-to-main='git-set-upstream main; git push -u origin main'
 alias git-pull='git pull'
 alias git-push-new-origin='git push --set-upstream origin'
-alias git-push-new-origin-help='pushes to a new remote on origin'
+alias git-push-new-origin-help='printf "USAGE: git-push-new-origin\nDESCRIPTION: pushes to a new remote on origin\n"'
 alias git-remote='git remote get-url origin'
 alias git-reset='git reset'
-alias git-set-upstream='git branch --set-upstream'
+alias git-set-upstream='git branch set-upstream-to'
 alias git-status='git status'
 alias git-unadd='git reset'
 alias git-update='git pull origin develop'
@@ -288,6 +301,7 @@ alias functions='compgen -A function'
 alias formatjson='pbpaste|json|pbcopy'
 alias hist='history | grep -i'                # search history for a command
 alias jless="json | less"                     # pipes json to less - see bash function json()
+# mapitup works on posix machines only. should be generified.
 #alias mapitup='pbpaste | json | sed s/\"/\'/g | sed -E s/\'\(.*\)\':/\\1:/g | sed s/\{/\[/g | sed s/\}/\]/g | pbcopy'
 alias myip='curl ifconfig.co/'
 alias path='echo -e ${PATH//:/\\n}'           # pretty path
