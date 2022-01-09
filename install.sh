@@ -16,26 +16,31 @@ createBackupDir() {
 backupFile() {
   source=~/"$1"
   target="$source-$TIMESTAMP"
-  echo "target is $target"
+  echo "backing up file $source to $DOT_FILES_BACKUP_HOME"
+
   if [ -f "$source" ]; then
     \cp -av -- "$source" "$target"
     \mv -v "$target" "$DOT_FILES_BACKUP_HOME"
   fi
 }
 
-replaceFile() {
+putFile() {
   \cp -v "$1" ~/"$1"
 }
 
 installFile() {
   filename="$1"
-  userFile=~/"$filename"
-  cmp -s $filename $userFile > /dev/null
+  targetFile=~/"$filename"
+  echo "installing $filename to $targetFile"
+
+  cmp -s "$filename" "$targetFile" > /dev/null
   comp_value=$?
+  #echo "comp_value is $comp_value"
   if [ $comp_value -eq 1 ]; then
     backupFile "$filename"
-    replaceFile "$filename"
   fi
+
+  putFile "$filename"
 }
 
 createBackupDir
