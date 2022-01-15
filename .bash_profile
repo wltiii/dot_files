@@ -47,7 +47,10 @@ fi
 #
 case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;
-  darwin*)  echo "OSX" ;;
+  darwin*)
+      echo "OSX"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+      ;;
   linux*)
       echo "LINUX"
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
