@@ -36,4 +36,29 @@ fi
 if [ -f "${HOME}/.bashrc" ] ; then
   source "${HOME}/.bashrc"
 fi
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# TODO this, of course, causes an error on MAC
+# SEE https://stackoverflow.com/questions/394230/how-to-detect-the-os-from-a-bash-script
+#
+# FOR EXAMPLE
+# if [[ "$OSTYPE" =~ ^darwin ]]; then ...
+#
+# OR
+#
+case "$OSTYPE" in
+  solaris*) echo "SOLARIS" ;;
+  darwin*)
+      echo "OSX"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+      ;;
+  linux*)
+      echo "LINUX"
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      ;;
+  bsd*)     echo "BSD" ;;
+  msys*)    echo "WINDOWS" ;;
+  cygwin*)  echo "ALSO WINDOWS" ;;
+  *)        echo "unknown: $OSTYPE" ;;
+esac
+
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
