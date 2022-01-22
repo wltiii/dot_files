@@ -37,28 +37,26 @@ if [ -f "${HOME}/.bashrc" ] ; then
   source "${HOME}/.bashrc"
 fi
 
-# TODO this, of course, causes an error on MAC
+#
 # SEE https://stackoverflow.com/questions/394230/how-to-detect-the-os-from-a-bash-script
 #
-# FOR EXAMPLE
-# if [[ "$OSTYPE" =~ ^darwin ]]; then ...
-#
-# OR
-#
+# OS specif configuration
+## TODO would this be the path needed for bin/cache .pub-cache/bin commented out in .bash_exports?
 case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;
   darwin*)
       echo "OSX"
       eval "$(/opt/homebrew/bin/brew shellenv)"
+      export PATH="$PATH:~/development/flutter/bin"
+      export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
       ;;
   linux*)
       echo "LINUX"
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      export PATH=$PATH:/home/worldwidewilly/fvm/default/bin
       ;;
   bsd*)     echo "BSD" ;;
   msys*)    echo "WINDOWS" ;;
   cygwin*)  echo "ALSO WINDOWS" ;;
   *)        echo "unknown: $OSTYPE" ;;
 esac
-
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

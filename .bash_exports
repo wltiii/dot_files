@@ -58,9 +58,11 @@ export PATH=$PATH:$HOME/bin/python
 #export PATH=$PATH:$SCALA_HOME/bin
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.work
-export PATH=$PATH:/home/worldwidewilly/fvm/default/bin
-#export PATH=$PATH:$HOME/snap/flutter/common/flutter/.pub-cache/bin
+
+# these are probably localized paths for using FVM non-global versions
 #export PATH=$PATH:`pwd`/flutter/bin
 #export PATH=$PATH:`pwd`/bin/cache/dart-sdk/bin
+
 #export PATH=$PATH:`pwd`/.pub-cache/bin
+# path on MAC - is it the path on Linux??????
 export PATH="$PATH":"$HOME/.pub-cache/bin"
