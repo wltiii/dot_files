@@ -1,3 +1,4 @@
+echo "installing  - installing functions"
 ########################################################################
 # aliases shows all aliases with an optional filter pattern
 ########################################################################

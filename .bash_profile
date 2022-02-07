@@ -27,6 +27,7 @@
 # source the profile if it exists
 ############################################################################
 if [ -f "${HOME}/.profile" ]; then
+  echo "sourcing ${HOME}/.profile"
   source "${HOME}/.profile"
 fi
 
@@ -34,6 +35,7 @@ fi
 # source the users bashrc if it exists
 ############################################################################
 if [ -f "${HOME}/.bashrc" ] ; then
+  echo "sourcing ${HOME}/.bashrc"
   source "${HOME}/.bashrc"
 fi
 
@@ -45,13 +47,13 @@ fi
 case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;
   darwin*)
-      echo "OSX"
+      echo "OSX - installing OS specific settings"
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH="$PATH:~/development/flutter/bin"
       export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
       ;;
   linux*)
-      echo "LINUX"
+      echo "LINUX - installing OS specific settings"
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       export PATH=$PATH:/home/worldwidewilly/fvm/default/bin
       ;;

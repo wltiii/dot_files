@@ -1,3 +1,4 @@
+echo "installing  - installing aliases"
 ############################################################################
 #
 # If these are enabled they will be used instead of any commands
