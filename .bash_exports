@@ -1,4 +1,4 @@
-echo "installing  - installing OS specific settings"
+echo "installing  - installing exports"
 
 ############################################################################
 # BASE exports
