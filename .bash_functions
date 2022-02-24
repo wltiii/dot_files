@@ -50,9 +50,15 @@ flutter-create-null-safe() {
 # fvm-flutter-update(version_number)
 ########################################################################
 fvm-flutter-update() {
+# TODO parse `Feb 19 22  │ 2.10.2            stable`
+# TODO to get the most recent version and use that instead of an argument
+# TODO command `fvm-releases` will list all versions
+
     fvm install $1
     fvm use $1
     fvm global $1
+
+# TODO remove old versions automatically?
 }
 ########################################################################
 # git-apply-changes-to (target-branch)
