@@ -192,6 +192,9 @@ alias flutter-upgrade-verify='flutter upgrade --verify-only'
 alias flutter-version='flutter --version'
 alias flutter-remove='fvm flutter pub remove'
 alias flutter-remove-help='printf "\nUSAGE: flutter-remove <package>\nDESCRIPTION: Removes package from project.\nNOTE: This assumes the project is managed through Flutter Version Manager.\n\n"'
+alias flutter-update-version='fvm-flutter-update'
+alias flutter-update-version-help='printf "USAGE: flutter-update-version version-number\nDESCRIPTION: Installs version and sets both active and global to the vesion.\n"'
+
 
 ############################################################################
 # flutter version manager (fvm) aliases
@@ -210,6 +213,7 @@ alias fvm-list='fvm list'
 alias fvm-releases='fvm releases'
 alias fvm-remove='fvm remove'
 alias fvm-spawn='fvm spawn'
+alias fvm-update='pub global activate fvm'
 alias fvm-use='fvm use'
 ############################################################################
 # git aliases

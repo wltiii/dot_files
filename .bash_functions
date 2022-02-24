@@ -47,6 +47,14 @@ flutter-create-null-safe() {
     idea .
 }
 ########################################################################
+# fvm-flutter-update(version_number)
+########################################################################
+fvm-flutter-update() {
+    fvm install $1
+    fvm use $1
+    fvm global $1
+}
+########################################################################
 # git-apply-changes-to (target-branch)
 #
 # applies changes made to a branch erroneously (i.e. not the desired
