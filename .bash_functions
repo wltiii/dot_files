@@ -37,6 +37,49 @@ xml() {
 findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 not found"; }
 
 ########################################################################
+# Generates Flutter coverage statistics and opens results in browser
+#
+# USAGE: run from project root
+########################################################################
+flutter-coverage() {
+    # run flutter coverage (lcov)
+    flutter test --coverage
+
+    # generate html
+    genhtml coverage/lcov.info -o coverage/html
+
+    # launch firefox browser
+    firefox coverage/html/index.html
+}
+########################################################################
+# fvm-flutter-update(version_number)
+########################################################################
+fvm-flutter-update() {
+# TODO do not require line number - just update to latest
+# TODO command `fvm-releases` will list all versions. parse the line below
+# TODO parse `Feb 19 22  │ 2.10.2            stable`
+# TODO to get the most recent version and use that instead of an argument
+
+    fvm install $1
+    fvm use $1
+    fvm global $1
+
+# TODO remove old versions automatically?
+# list releases
+# parse list from fvm-list - e.g. shows current stable and prev
+#
+# [the_shuk]➔ fvm-list
+# Cache Directory:  /home/worldwidewilly/fvm/versions
+#
+# stable
+# 2.10.2 (active) (global)
+# 2.10.0
+#
+# and remove remove using fvm-remove for everything except current and prior
+# NOTE the commands above will set the active and global
+# call fvm-remove [old-version-number]
+}
+########################################################################
 # flutter-create-null-safe(project-name)
 ########################################################################
 flutter-create-null-safe() {
@@ -45,20 +88,6 @@ flutter-create-null-safe() {
     dart migrate --apply-changes
     work --save $1
     idea .
-}
-########################################################################
-# fvm-flutter-update(version_number)
-########################################################################
-fvm-flutter-update() {
-# TODO parse `Feb 19 22  │ 2.10.2            stable`
-# TODO to get the most recent version and use that instead of an argument
-# TODO command `fvm-releases` will list all versions
-
-    fvm install $1
-    fvm use $1
-    fvm global $1
-
-# TODO remove old versions automatically?
 }
 ########################################################################
 # git-apply-changes-to (target-branch)
