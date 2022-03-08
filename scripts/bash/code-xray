@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 #
 # Code Xray - Code Analysis based upon Adam Tornhill's "Software Design X-Rays: Fix Technical Debt With Behavioral Code Analysis"
 #
