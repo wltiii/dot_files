@@ -53,7 +53,9 @@ case "$OSTYPE" in
       export PATH="$PATH:/Users/worldwidewilly/fvm/default/bin"
 #       export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
 #       export JAVA_HOME=/usr/bin/java
-      export JAVA_HOME=$(/usr/libexec/java_home)
+#       export JAVA_HOME=$(/usr/libexec/java_home)
+#       sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+#                  /usr/local/opt/openjdk@11/bin/java
       ;;
   linux*)
       echo "LINUX - installing OS specific settings"
