@@ -42,42 +42,60 @@ findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 
 # USAGE: run from project root
 ########################################################################
 flutter-coverage() {
+
+    case "$OSTYPE" in
+      solaris*) echo "SOLARIS" ;;
+      darwin*)
+             echo "MAC - flutter-coverage"
+            # run flutter coverage (lcov)
+            flutter test --coverage
+            # generate html
+            genhtml coverage/lcov.info -o coverage/html
+            # launch firefox browser
+            open -a /Applications/Firefox.app coverage/html/index.html
+            ;;
+      linux*)
+             echo "LINUX - flutter-coverage"
+            # run flutter coverage (lcov)
+            flutter test --coverage
+            # generate html
+            genhtml coverage/lcov.info -o coverage/html
+            # launch firefox browser
+            firefox coverage/html/index.html
+            ;;
+      bsd*)     echo "BSD" ;;
+      msys*)    echo "WINDOWS" ;;
+      cygwin*)  echo "ALSO WINDOWS" ;;
+      *)        echo "unknown: $OSTYPE" ;;
+    esac
+
     # run flutter coverage (lcov)
-    flutter test --coverage
-
+    # flutter test --coverage
     # generate html
-    genhtml coverage/lcov.info -o coverage/html
-
+    # genhtml coverage/lcov.info -o coverage/html
     # launch firefox browser
-    firefox coverage/html/index.html
+    # firefox coverage/html/index.html
 }
 ########################################################################
 # fvm-flutter-update(version_number)
 ########################################################################
 fvm-flutter-update() {
-# TODO do not require line number - just update to latest
-# TODO command `fvm-releases` will list all versions. parse the line below
-# TODO parse `Feb 19 22  │ 2.10.2            stable`
-# TODO to get the most recent version and use that instead of an argument
+    stable_version=`fvm-releases | grep stable`
+    latest_version=`grep -o "[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}" <<<$stable_version`
 
-    fvm install $1
-    fvm use $1
-    fvm global $1
+    echo
+    echo "Installing and setting global version to $latest_version"
+    echo
+    fvm install $latest_version
+    fvm global $latest_version
 
-# TODO remove old versions automatically?
-# list releases
-# parse list from fvm-list - e.g. shows current stable and prev
-#
-# [the_shuk]➔ fvm-list
-# Cache Directory:  /home/worldwidewilly/fvm/versions
-#
-# stable
-# 2.10.2 (active) (global)
-# 2.10.0
-#
-# and remove remove using fvm-remove for everything except current and prior
-# NOTE the commands above will set the active and global
-# call fvm-remove [old-version-number]
+    echo
+    echo 'installed versions are:'
+    fvm-list
+
+    echo
+    echo 'use `fvm-remove [old-version-number]` to remove unnecessary versions'
+    echo 'use `fvm-use [version-number]` to use a specific version within a project'
 }
 ########################################################################
 # flutter-create-null-safe(project-name)
