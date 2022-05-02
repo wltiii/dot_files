@@ -42,7 +42,7 @@ fi
 #
 # SEE https://stackoverflow.com/questions/394230/how-to-detect-the-os-from-a-bash-script
 #
-# OS specif configuration
+# OS specific configuration
 ## TODO would this be the path needed for bin/cache .pub-cache/bin commented out in .bash_exports?
 case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;
@@ -58,6 +58,7 @@ case "$OSTYPE" in
       ;;
   linux*)
       echo "LINUX - installing OS specific settings"
+      # NOTE fvm should be upgraded via linuxbrew
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       export PATH=$PATH:/home/worldwidewilly/fvm/default/bin
       ;;
