@@ -44,10 +44,11 @@ fi
 #
 # OS specific configuration
 ## TODO would this be the path needed for bin/cache .pub-cache/bin commented out in .bash_exports?
+echo "installing $OSTYPE specific settings"
 case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;
   darwin*)
-      echo "OSX - installing OS specific settings"
+      echo "OSX - installing settings"
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH="$PATH:/Users/worldwidewilly/fvm/default/bin"
 #       export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
@@ -57,9 +58,10 @@ case "$OSTYPE" in
 #                  /usr/local/opt/openjdk@11/bin/java
       ;;
   linux*)
-      echo "LINUX - installing OS specific settings"
+      echo "LINUX - installing settings"
       # NOTE fvm should be upgraded via linuxbrew
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      export PATH=$PATH:/home/worldwidewilly/fvm/default/bin
       ;;
   bsd*)     echo "BSD" ;;
   msys*)    echo "WINDOWS" ;;
