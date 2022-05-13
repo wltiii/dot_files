@@ -191,15 +191,16 @@ alias flutter-test-help='flutter test --help'
 alias flutter-unit-test='flutter test'
 alias flutter-unit-test-help='flutter test --help'
 alias flutter-unit-test-named='flutter test --name='
-alias flutter-upgrade='flutter upgrade'
+alias flutter-update-help='printf "\nUSAGE: flutter-update\nDESCRIPTION: Installs and sets the global Flutter version to the latest stable release.\nNOTE: This assumes the project is managed through Flutter Version Manager.\n\n"'
+alias flutter-update='fvm-flutter-update'
 alias flutter-upgrade-help='flutter upgrade -h'
+alias flutter-upgrade='flutter upgrade'
 alias flutter-upgrade-verify='flutter upgrade --verify-only'
 alias flutter-version='flutter --version'
 alias flutter-remove='fvm flutter pub remove'
 alias flutter-remove-help='printf "\nUSAGE: flutter-remove <package>\nDESCRIPTION: Removes package from project.\nNOTE: This assumes the project is managed through Flutter Version Manager.\n\n"'
 alias flutter-update-version='fvm-flutter-update'
 alias flutter-update-version-help='printf "USAGE: flutter-update-version version-number\nDESCRIPTION: Installs version and sets both active and global to the vesion.\n"'
-
 
 ############################################################################
 # flutter version manager (fvm) aliases

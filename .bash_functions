@@ -77,7 +77,7 @@ flutter-coverage() {
     # firefox coverage/html/index.html
 }
 ########################################################################
-# fvm-flutter-update(version_number)
+# fvm-flutter-update()
 ########################################################################
 fvm-flutter-update() {
     stable_version=`fvm-releases | grep stable`
