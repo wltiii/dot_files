@@ -1,3 +1,14 @@
+echo "#########################################"
+echo "            BASH_PROFILE"
+echo "     invoked as login shell "
+echo " "
+echo " for information regarding Bash startup files, see: "
+echo " https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html "
+echo "#########################################"
+#
+# for information regarding Bash startup files, see: "
+# https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html "
+
 # ~/.bash_profile: executed by bash(1) for login shells.
 
 # The grid below shows the execution of the various startup files.
@@ -27,7 +38,6 @@
 # source the profile if it exists
 ############################################################################
 if [ -f "${HOME}/.profile" ]; then
-  echo "sourcing ${HOME}/.profile"
   source "${HOME}/.profile"
 fi
 
@@ -35,7 +45,6 @@ fi
 # source the users bashrc if it exists
 ############################################################################
 if [ -f "${HOME}/.bashrc" ] ; then
-  echo "sourcing ${HOME}/.bashrc"
   source "${HOME}/.bashrc"
 fi
 

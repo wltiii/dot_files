@@ -1,5 +1,15 @@
 #!/bin/bash
-
+#
+echo "#########################################"
+echo "            .bashrc"
+echo " "
+echo " for information regarding Bash startup files, see: "
+echo " https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html "
+echo "#########################################"
+#
+# for information regarding Bash startup files, see: "
+# https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html "
+#
 # The grid below shows the execution of the various startup files.
 #
 # ----+--- System Wide (all users) --------+------ #
@@ -23,7 +33,6 @@
 # sources .bashrc, which then sets up all the interactive shell settings.
 #
 ############################################################################
-
 PAGER=less
 
 ############################################################################
