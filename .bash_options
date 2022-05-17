@@ -1,4 +1,3 @@
-echo "installing  - installing options"
 ############################################################################
 # If not running interactively, don't do anything
 ############################################################################
@@ -67,4 +66,3 @@ shopt -s histappend
 # umask 027
 # Paranoid: neither group nor others have any perms:
 # umask 077
-
