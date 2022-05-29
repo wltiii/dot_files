@@ -324,6 +324,7 @@ alias sdk-version='sdk version'
 # alias work='cd ~/workspace'                 # removed. use groovy script 'work' in workman project
 # alias less='less -r'                        # raw control characters
 alias clr='clear'
+alias clean-snap='cleanup-snap'
 alias filtered-aliases='alias | grep "$@"'
 alias functions='compgen -A function'
 alias formatjson='pbpaste|json|pbcopy'

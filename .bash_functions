@@ -8,6 +8,51 @@ aliases() {
 		alias
 	fi
 }
+
+########################################################################
+# Removes old revisions of snaps
+########################################################################
+cleanup-snap() {
+# This script comes from:
+#   https://itsfoss.com/clean-snap-packages/
+#
+#     set -eu
+#     snap list --all | awk '/disabled/{print $1, $3}' |
+#         while read snapname revision; do
+#             snap remove "$snapname" --revision="$revision"
+#         done
+#
+# Removes old revisions of snaps
+# CLOSE ALL SNAPS BEFORE RUNNING THIS
+#
+# I have yet to get this to run, therefore  I run `snap list --all | grep disabled`, then remove manually.
+#
+# For example
+#
+# ? snap list --all | grep disabled
+# chromium                              101.0.4951.54               1985   latest/stable    canonical*         disabled
+# core                                  16-2.54.4                   12834  latest/stable    canonical*         core,disabled
+# core20                                20220329                    1434   latest/stable    canonical*         base,disabled
+# google-cloud-sdk                      386.0.0                     241    latest/stable    google-cloud-sdk*  disabled,classic
+# gtk-common-themes                     0.1-59-g7bca6ae             1519   latest/stable/…  canonical*         disabled
+# slack                                 4.25.1                      61     latest/stable    slack*             disabled
+#
+# ? sudo snap remove chromium --revision=1985
+#
+# Note: that the name is the first column in the grep and the revision is the third.
+
+    echo 'Use the following commands to remove old snaps.'
+    echo '  Note: the snap-name is the first column and the '
+    echo '  snap-revision is the third column of the grep results.'
+    echo ''
+    echo 'To list the disabled snaps, use'
+    echo '`snap list --all | grep disabled`'
+    echo ''
+    echo 'To remove a revision, use'
+    echo '`sudo snap remove [snap-name] --revision=[snap-revision]`'
+    echo ''
+}
+
 ########################################################################
 # parses input using groovy JsonSlurper
 ########################################################################
