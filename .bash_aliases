@@ -280,6 +280,7 @@ alias git-unadd='git reset'
 alias git-update='git pull origin develop'
 alias git-upstreams='git fetch --all; git branch -vv'
 alias gst='git status' # NOTE: gst will conflict with some smalltalk command
+alias github-desktop='flatpak run io.github.shiftey.Desktop'
 ############################################################################
 # MyRepo aliases - requires MyRepos to be installed: https://myrepos.branchable.com/
 ############################################################################
