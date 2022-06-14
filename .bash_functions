@@ -152,6 +152,19 @@ flutter-create-null-safe() {
     idea .
 }
 ########################################################################
+# to-dashed-string 'a string'
+########################################################################
+to-dashed-string() {
+    echo $1 | sed 's/ /-/g'
+}
+########################################################################
+# to-dashed-lowercase-string 'a string'
+#   returns A String
+########################################################################
+to-dashed-lowercase-string() {
+    echo $1 | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g'
+}
+########################################################################
 # git-apply-changes-to (target-branch)
 #
 # applies changes made to a branch erroneously (i.e. not the desired

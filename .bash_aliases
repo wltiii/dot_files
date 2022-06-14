@@ -338,7 +338,11 @@ alias path='echo -e ${PATH//:/\\n}'           # pretty path
 alias prettypath='echo -e ${PATH//:/\\n}'     # pretty path
 alias q='exit'
 alias trail='tail -f'
-alias underscoreit='pbpaste | sed s/\ /_/g  | tr -d "\n" | pbcopy'
+# this version of underscoreit works on posix machines only. should be generified.
+# alias underscoreit='pbpaste | sed s/\ /_/g  | tr -d "\n" | pbcopy'
+alias dashit-help='printf "\nUSAGE: dashit `a string with spaces`\nDESCRIPTION: Echos string as lowercase replacing spaces with dashes.\n\n"'
+#alias dashit='to-dashed-string'
+alias dashit='to-dashed-lowercase-string "$@"'
 alias whence='type -a'                        # where, of a sort
 alias xless="xml | less"                      # pipes xml to less - see bash function xml()
 
