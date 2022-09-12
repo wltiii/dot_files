@@ -199,13 +199,82 @@ git-ticket() {
 }
 
 ########################################################################
-# git-commit
+# git-commit-ticket
 # uses git-ticket to prepend the commit message with
 # the ticket name
 # Ken Williams at Windlogics shared this code
 ########################################################################
 git-commit-ticket() {
   x=$(git-ticket); git commit -a -v -m "$x$1"
+}
+
+########################################################################
+# commit-with-tag tag="my tag" message="my message"
+########################################################################
+commit-with-tag() {
+
+ARGUMENT_LIST=(
+  "message"
+  "tag"
+)
+
+
+# read arguments
+opts=$(getopt \
+  --longoptions "$(printf "%s:," "${ARGUMENT_LIST[@]}")" \
+  --name "$(basename "$0")" \
+  --options "" \
+  -- "$@"
+)
+
+eval set --$opts
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --message)
+      argOne=$2
+      shift 2
+      ;;
+
+    --tag)
+      argTwo=$2
+      shift 2
+      ;;
+
+    --arg-three)
+      argThree=$2
+      shift 2
+      ;;
+
+    *)
+      break
+      ;;
+  esac
+done
+
+
+
+
+    while getopts ":t:m:" opt; do
+      case $opt in
+
+        t) arg_1="$OPTARG"
+        ;;
+        m) p_out="$OPTARG"
+        ;;
+        \?) echo "Invalid option -$OPTARG" >&2
+        exit 1
+        ;;
+      esac
+
+      case $OPTARG in
+        -*) echo "Option $opt needs a valid argument"
+        exit 1
+        ;;
+      esac
+    done
+
+#    git commit "$2" && git tag "$1"
 }
 
 ########################################################################
