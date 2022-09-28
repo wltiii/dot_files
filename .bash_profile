@@ -58,8 +58,8 @@ case "$OSTYPE" in
   solaris*) echo "SOLARIS" ;;
   darwin*)
       echo "OSX - installing settings"
-      eval "$(/opt/homebrew/bin/brew shellenv)"
       export PATH="$PATH:/Users/worldwidewilly/fvm/default/bin"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
 #       export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
 #       export JAVA_HOME=/usr/bin/java
 #       export JAVA_HOME=$(/usr/libexec/java_home)
@@ -69,8 +69,8 @@ case "$OSTYPE" in
   linux*)
       echo "LINUX - installing settings"
       # NOTE fvm should be upgraded via linuxbrew
-      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       export PATH=$PATH:/home/worldwidewilly/fvm/default/bin
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       ;;
   bsd*)     echo "BSD" ;;
   msys*)    echo "WINDOWS" ;;
