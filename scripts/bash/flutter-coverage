@@ -5,9 +5,8 @@
 # USAGE: run from project root
 
     case "$OSTYPE" in
-      solaris*) echo "SOLARIS" ;;
       darwin*)
-             echo "MAC - flutter-coverage"
+             echo "Running flutter-coverage on MAC"
             # run flutter coverage (lcov)
             flutter test --coverage
             # generate html
@@ -16,7 +15,7 @@
             open -a /Applications/Firefox.app coverage/html/index.html
             ;;
       linux*)
-             echo "LINUX - flutter-coverage"
+             echo "Running flutter-coverage on LINUX"
             # run flutter coverage (lcov)
             flutter test --coverage
             # generate html
@@ -24,9 +23,10 @@
             # launch firefox browser
             firefox coverage/html/index.html
             ;;
-      bsd*)     echo "BSD" ;;
-      msys*)    echo "WINDOWS" ;;
-      cygwin*)  echo "ALSO WINDOWS" ;;
+      solaris*) echo "SOLARIS - note yet implemented" ;;
+      bsd*)     echo "BSD - note yet implemented" ;;
+      msys*)    echo "WINDOWS - note yet implemented" ;;
+      cygwin*)  echo "ALSO WINDOWS - note yet implemented" ;;
       *)        echo "unknown: $OSTYPE" ;;
     esac
 
