@@ -48,7 +48,7 @@ alias vdir='\ls --color=auto --format=long'
 alias fgrep='fgrep --color=auto'              # show differences in colour
 alias grep='egrep --color=auto'               # show differences in colour
 # alias grep='grep --color'                   # show differences in colour
-alias idea='intellij-idea-community .'
+alias idea='open -na "/Applications/IntelliJ IDEA CE.app" .'
 alias mob='~/.local/bin/mob'
 alias more=less
 alias mysudo='sudo -i -E env "PATH=$PATH"'
