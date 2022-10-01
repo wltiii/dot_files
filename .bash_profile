@@ -55,7 +55,6 @@ fi
 ## TODO would this be the path needed for bin/cache .pub-cache/bin commented out in .bash_exports?
 echo "installing $OSTYPE specific settings"
 case "$OSTYPE" in
-  solaris*) echo "SOLARIS" ;;
   darwin*)
       echo "OSX - installing settings"
       export PATH="$PATH:/Users/worldwidewilly/fvm/default/bin"
@@ -73,6 +72,7 @@ case "$OSTYPE" in
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       ;;
   bsd*)     echo "BSD" ;;
+  solaris*) echo "SOLARIS" ;;
   msys*)    echo "WINDOWS" ;;
   cygwin*)  echo "ALSO WINDOWS" ;;
   *)        echo "unknown: $OSTYPE" ;;

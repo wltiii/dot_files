@@ -48,7 +48,6 @@ alias vdir='\ls --color=auto --format=long'
 alias fgrep='fgrep --color=auto'              # show differences in colour
 alias grep='egrep --color=auto'               # show differences in colour
 # alias grep='grep --color'                   # show differences in colour
-alias idea='open -na "/Applications/IntelliJ IDEA CE.app" .'
 alias mob='~/.local/bin/mob'
 alias more=less
 alias mysudo='sudo -i -E env "PATH=$PATH"'
@@ -367,3 +366,22 @@ alias mv='mv -i' #Prompts you if you are going to overwrite something
 ############################################################################
 # alias df='df -h'
 # alias du='du -h'
+
+############################################################################
+# OS specific aliases
+############################################################################
+case "$OSTYPE" in
+  darwin*)
+      echo "OSX - specific aliases"
+      alias idea='open -na "/Applications/IntelliJ IDEA CE.app" .'
+      ;;
+  linux*)
+      echo "LINUX - specific aliases"
+      alias idea='intellij-idea-community .'
+      ;;
+  bsd*)     echo "BSD - specific aliases" ;;
+  solaris*) echo "SOLARIS - specific aliases" ;;
+  msys*)    echo "WINDOWS - specific aliases" ;;
+  cygwin*)  echo "CYGWIN (ALSO WINDOWS) - specific aliases" ;;
+  *)        echo "unknown: $OSTYPE" ;;
+esac
