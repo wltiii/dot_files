@@ -373,11 +373,14 @@ alias mv='mv -i' #Prompts you if you are going to overwrite something
 case "$OSTYPE" in
   darwin*)
       echo "OSX - specific aliases"
-      alias idea='open -na "/Applications/IntelliJ IDEA CE.app" .'
+#     To enable command line: Open IntelliJ IDEA, go to Tools->Create Command-Line Launcher...
+#     This could break with a new version IDEA - see https://emmanuelbernard.com/blog/2017/02/27/start-intellij-idea-command-line/
+      alias idea='/usr/local/bin/idea'
       ;;
   linux*)
       echo "LINUX - specific aliases"
-      alias idea='intellij-idea-community .'
+#       alias idea='intellij-idea-community .'
+      alias idea='intellij-idea-community'
       ;;
   bsd*)     echo "BSD - specific aliases" ;;
   solaris*) echo "SOLARIS - specific aliases" ;;
