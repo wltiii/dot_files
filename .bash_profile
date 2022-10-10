@@ -10,7 +10,6 @@ echo "#########################################"
 # https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html "
 
 # ~/.bash_profile: executed by bash(1) for login shells.
-
 # The grid below shows the execution of the various startup files.
 #
 # ----+--- System Wide (all users) --------+------ #
