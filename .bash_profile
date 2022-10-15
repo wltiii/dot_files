@@ -67,7 +67,7 @@ case "$OSTYPE" in
   linux*)
       echo "LINUX - installing settings"
       # NOTE fvm should be upgraded via linuxbrew
-      export PATH=$PATH:/home/worldwidewilly/fvm/default/bin
+      export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin/fvm
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       ;;
   bsd*)     echo "BSD" ;;
