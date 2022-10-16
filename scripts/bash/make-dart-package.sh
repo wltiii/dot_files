@@ -6,6 +6,8 @@
 #     Run command:
 #         $ make-dart-package <package name>
 
+# SEE: https://dart.dev/guides/libraries/create-library-packages
+
 # TODO:
 # 1) do not delete files that exist - DONE
 # 2) prompt for file replacement
