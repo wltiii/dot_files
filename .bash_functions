@@ -142,6 +142,16 @@ fvm-flutter-update() {
     echo 'use `fvm-use [version-number]` to use a specific version within a project'
 }
 ########################################################################
+# flutter-create-null-safe(project-name)
+########################################################################
+flutter-create-null-safe() {
+    flutter create $1
+    cd $1
+    dart migrate --apply-changes
+    work --save $1
+    idea .
+}
+########################################################################
 # to-dashed-string 'a string'
 ########################################################################
 to-dashed-string() {
