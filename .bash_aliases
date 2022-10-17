@@ -149,6 +149,7 @@ alias docker-wait-help='docker --help wait'
 ############################################################################
 # flutter aliases
 ############################################################################
+alias flutter='fvm-flutter'
 alias flutter-activate-dart-style='flutter pub global activate dart_style'
 alias flutter-activate-fvm='flutter pub global activate fvm'
 alias flutter-beta-channel='flutter channel beta'
