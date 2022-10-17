@@ -129,9 +129,9 @@ addGitIgnore() {
 }
 
 addMainLibraryFileStub() {
-  path="$1"
-
-  FILE="$path.dart"
+  pkg="$1"
+  path="$2"
+  FILE="$pkg.dart"
   CONTENT="/// This is the main library (barrel) file. It is placed directly under lib.
 /// Use it to provide developers with an overview of the entire public API of the package.
 /// Also, to avoid exposing more API than intended.
@@ -154,7 +154,19 @@ addMainLibraryFileStub() {
 ///
 "
 
-  addFile $path $FILE "$CONTENT"
+  addFile "$pkg/$path" $FILE "$CONTENT"
+}
+
+addDeleteMe() {
+  pkg="$1"
+  path="$2"
+  FILE="DELETE_ME"
+  CONTENT="/// Generated file used to stub folder structure in version control systems.
+
+/// THIS FILE CAN BE SAFELY DELETED.
+"
+
+  addFile "$pkg/$path" $FILE "$CONTENT"
 }
 
 addFile() {
@@ -186,12 +198,15 @@ doMake() {
   makePath "$pkg/lib"
   makePath "$pkg/lib/src"
   makePath "$pkg/test"
-#  makePath "$pkg/example"
 
   addMITLicense $pkg
   addReadMe $pkg
   addGitIgnore $pkg
-  addMainLibraryFileStub $pkg
+  addMainLibraryFileStub $pkg "lib"
+
+  addDeleteMe $pkg  "example"
+  addDeleteMe $pkg "lib/src"
+  addDeleteMe $pkg "test"
 }
 
 package="$1"
