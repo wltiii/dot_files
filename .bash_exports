@@ -58,6 +58,7 @@ export PATH=$PATH:$HOME/bin/python
 #export PATH=$PATH:$SCALA_HOME/bin
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.work
+export PATH="$PATH:$HOME/fvm/default/bin"
 
 # these are probably localized paths for using FVM non-global versions
 #export PATH=$PATH:`pwd`/flutter/bin

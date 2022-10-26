@@ -56,7 +56,6 @@ echo "installing $OSTYPE specific settings"
 case "$OSTYPE" in
   darwin*)
       echo "OSX - installing settings"
-      export PATH="$PATH:/Users/worldwidewilly/fvm/default/bin"
       eval "$(/opt/homebrew/bin/brew shellenv)"
 #       export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
 #       export JAVA_HOME=/usr/bin/java
