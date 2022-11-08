@@ -57,11 +57,7 @@ case "$OSTYPE" in
   darwin*)
       echo "OSX - installing settings"
       eval "$(/opt/homebrew/bin/brew shellenv)"
-#       export PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
-#       export JAVA_HOME=/usr/bin/java
-#       export JAVA_HOME=$(/usr/libexec/java_home)
-#       sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
-#                  /usr/local/opt/openjdk@11/bin/java
+      export JAVA_HOME=$(/usr/libexec/java_home)
       ;;
   linux*)
       echo "LINUX - installing settings"
