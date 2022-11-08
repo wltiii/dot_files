@@ -171,7 +171,7 @@ alias flutter-clean-get-upgrade-test-named='flutter-clean-get-upgrade && flutter
 
 alias flutter-config='flutter config'
 alias flutter-config--android-studio='flutter config --android-studio-dir /home/worldwidewilly/android-studio'
-alias flutter-config-android-sdk='flutter config --android-sdk /home/worldwidewilly/android-studio'
+alias flutter-config-android-sdk='flutter config --android-sdk /home/worldwidewilly/Android/Sdk'
 alias flutter-create='flutter-create-null-safe'
 alias flutter-create-help='flutter create --help'
 alias flutter-devices='flutter devices'
