@@ -5,7 +5,7 @@
 # USAGE:
 #     edit the list of repos to be created at the bottom of this script.
 #     Run command:
-#         asciidoc-slides-setup.sh
+#         make-asciidoc-presentation.sh
 #
 
 setup() {
