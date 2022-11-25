@@ -19,6 +19,7 @@ setup() {
   verifyNpmInstallation
   installNpmDependency
   verifyRevealJsInstallation
+  convertStubbedPresentation
 }
 
 preamble() {
@@ -215,6 +216,20 @@ verifyRevealJsInstallation() {
   else
     echo "RevealJs installed..."
   fi
+}
+
+convertStubbedPresentation() {
+  echo ""
+  cd $ROOT/$PRESENTATION_DIR
+  echo "Converting presentation $ROOT/$PRESENTATION_DIR/presentation.adoc... "
+
+  npx asciidoctor-revealjs presentation.adoc
+
+  echo "Presentation conversion complete."
+  echo "A file named presentation.html was created. You can open this file in a browser."
+  echo "Run command `npx asciidoctor-revealjs presentation.adoc` from the presentation root to regenerate your slides."
+  echo " - or - use alias adoc-gen"
+
 }
 
 # Run the script

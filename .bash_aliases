@@ -61,6 +61,12 @@ alias mac-edit='open -a TextEdit'                 # open TextEdit from command l
 alias adb='~/Android/Sdk/platform-tools/adb'
 
 ############################################################################
+# asciidoc aliases
+############################################################################
+alias adoc-gen-help='run adoc-gen from root of presentation folder. File presentation.adoc must existing within the folder.'
+alias adoc-gen='npx asciidoctor-revealjs presentation.adoc'
+
+############################################################################
 # homebrew aliases
 ############################################################################
 alias brew-commands='brew commands'
