@@ -16,6 +16,7 @@ setup() {
   preamble
   verifyPath
   stubPresentation
+  addGitIgnore
   verifyNpmInstallation
   installNpmDependency
   verifyRevealJsInstallation
@@ -41,7 +42,8 @@ This script does the following:
  - creates a doc/assets directories if they do not already exist
  - verifies node and npm have been installed
  - creates a presentation.adoc stub in the doc folder if it does not already exist
- - installs npm dependency at the root of the presentation directory ???
+ - adds .gitignore to the doc folder
+ - installs npm dependency at the root of the presentation directory
  - installs reveal js in project directory
 "
 }
@@ -82,7 +84,7 @@ stubPresentation() {
   fi
 
   if [[ -f "$PRESENTATION_DIR/presentation.adoc" ]]; then
-    echo "Presentation $PRESENTATION_ASSETS/presentation.adoc folder already exists. Not created."
+    echo "Presentation $PRESENTATION_DIR/presentation.adoc already exists. Not created."
   else
     echo "Presention presentation.adoc does not exist. Creating..."
     # using heredoc to create file
@@ -145,6 +147,23 @@ END
   fi
 
   echo "Presentation directories and default doc stubbed..."
+}
+
+addGitIgnore() {
+  echo "Adding presentation .gitignore..."
+
+  cd $ROOT
+
+  if [[ -f "$PRESENTATION_DIR/.gitignore" ]]; then
+    echo "Presentation $PRESENTATION_DIR/.gitignore already exists. Not created."
+    echo "Verify that you ignore '/node_modules'"
+  else
+    echo "File $PRESENTATION_DIR/.gitignore does not exist. Creating..."
+    # using heredoc to create file
+    cat <<END >$PRESENTATION_DIR/.gitignore
+/node_modules
+END
+  fi
 }
 
 # Where is this being installed? Presumable in $USER
