@@ -19,13 +19,14 @@ WORK_ROOT="/home/worldwidewilly/workspace"
 #from the remote, but no such ref was fetched.
 # tcrman
 
+# Not my project
+# flutter_firebase_authentication
+# graphql/graphql_demo - this is Manoj's
 
 MY_REPOS=(
  cosmic_instant
  deliberate_action
  dot_files
- flutter_firebase_authentication
- graphql/graphql_demo
  pill_pusher
  presentations/flutter_adaptive_responsive
  pusherman
