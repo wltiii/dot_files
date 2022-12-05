@@ -249,6 +249,9 @@ alias fvm-flutter-pub-upgrade='fvm-flutter pub upgrade'
 alias fvm-flutter-build-runner='fvm-flutter pub run build_runner build'
 alias fvm-global='fvm global'
 alias fvm-install='fvm install'
+alias fvm-install-stable-help='printf "USAGE: fvm-flutter-update\nDESCRIPTION Installs latest stable flutter release
+and sets as global."'
+alias fvm-install-stable='fvm-flutter-update'
 # the following does not work. it states 'Please provide a channel or a version, or run this command in a Flutter project that has FVM configured.'
 # alias fvm-install-global='version=$1; fvm install $version && fvm global $version'
 # alias fvm-install-global="one=$1; two=$1; echo two is $two; echo one is $one"

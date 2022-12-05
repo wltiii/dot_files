@@ -122,9 +122,10 @@ flutter-coverage() {
 }
 ########################################################################
 # fvm-flutter-update()
+# installs latest stable flutter release and sets as global
 ########################################################################
 fvm-flutter-update() {
-    stable_version=`fvm-releases | grep stable`
+    stable_version=`fvm-list-stable-releases`
     latest_version=`grep -o "[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}" <<<$stable_version`
 
     echo
