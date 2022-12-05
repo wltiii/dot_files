@@ -6,20 +6,85 @@
 #    requires credentials having been stored. 
 #    see: https://www.shellhacks.com/git-config-username-password-store-credentials/
 
-clientHome="/home/worldwidewilly/workspace/clients/shuk/*"
+WORK_ROOT="/home/worldwidewilly/workspace"
 
-# update repos
+# the repos below fails with the following
+#Support for password authentication was removed on August 13, 2021.
+#remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+# memory-box
+# sticky_learning
 
-for i in `\ls -CFd $clientHome`
-do
-  cd $i
-  echo $PWD
+#Fetching origin
+#Your configuration specifies to merge with the ref 'refs/heads/master'
+#from the remote, but no such ref was fetched.
+# tcrman
+
+
+MY_REPOS=(
+ cosmic_instant
+ deliberate_action
+ dot_files
+ flutter_firebase_authentication
+ graphql/graphql_demo
+ pill_pusher
+ presentations/flutter_adaptive_responsive
+ pusherman
+ unrepresentable_state
+ workman
+)
+
+#This app is using a deprecated version of the Android embedding.
+#To avoid unexpected runtime failures, or future build failures, try to migrate this app to the V2 embedding.
+#Take a look at the docs for migrating an app: https://github.com/flutter/flutter/wiki/Upgrading-pre-1.12-Android-projects
+#The plugin `firebase_auth` requires your app to be migrated to the Android embedding v2. Follow the steps on
+#https://flutter.dev/go/android-project-migration and re-run this command.
+# flutter_firebase_authentication
+
+#Expected to find project root in current working directory.
+# memory-box
+FLUTTER_PROJECTS=(
+ cosmic_instant
+ deliberate_action
+ graphql/graphql_demo
+ pill_pusher
+ presentations/flutter_adaptive_responsive
+ pusherman
+ unrepresentable_state
+)
+
+########################################################################
+# Update repos
+########################################################################
+for i in "${MY_REPOS[@]}"; do
+  echo "Updating repo $i..."
+  cd $WORK_ROOT/$i
+#  echo $PWD
   git fetch --all
   sleep 2
   git pull
   sleep 2
-  cd $clientHome
+  echo "status is ---> $(git status -s)"
+  echo '...done'
 done
 
-work
+########################################################################
+# Update Flutter
+########################################################################
+fvm-install-stable
 
+########################################################################
+# Update dependencies in Flutter projects
+########################################################################
+for i in "${FLUTTER_PROJECTS[@]}"; do
+  echo "Updating dependencies for $i..."
+  cd $WORK_ROOT/$i
+#  echo $PWD
+  flutter pub upgrade --major-versions
+  echo '...done'
+done
+
+
+########################################################################
+# Open terminal to current project
+########################################################################
+work
