@@ -6,7 +6,17 @@
 #    requires credentials having been stored. 
 #    see: https://www.shellhacks.com/git-config-username-password-store-credentials/
 
+MAC_ROOT="/Users/worldwidewilly/workspace"
+LINUX_ROOT="/home/worldwidewilly/workspace"
 WORK_ROOT="/home/worldwidewilly/workspace"
+
+echo "testing root"
+if [[ -d $MAC_ROOT ]]
+then
+    echo "Found MAC_ROOT. Using."
+    WORK_ROOT=$MAC_ROOT
+fi
+echo "WORK_ROOT is $WORK_ROOT"
 
 # the repos below fails with the following
 #Support for password authentication was removed on August 13, 2021.
@@ -30,6 +40,7 @@ MY_REPOS=(
  pill_pusher
  presentations/flutter_adaptive_responsive
  pusherman
+ time_tracker
  unrepresentable_state
  workman
 )
@@ -50,6 +61,7 @@ FLUTTER_PROJECTS=(
  pill_pusher
  presentations/flutter_adaptive_responsive
  pusherman
+ time_tracker
  unrepresentable_state
 )
 
