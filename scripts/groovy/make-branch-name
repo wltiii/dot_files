@@ -1,0 +1,57 @@
+#!/usr/bin/env groovy
+
+static def wrongArgCount(args) {
+    !args || (args.size() < 2 || args.size() > 3) || (args.size() == 3 && args[2] != 'v')
+}
+
+def  usage() {
+    println 'usage:'
+    println '~/wl-branchname story "story title"'
+    println '  or'
+    println '~/wl-branchname story "story title" v'
+    println ''
+    println 'for example (non verbose):'
+    println '~/wl-branchname ENOP-257 "Review Emerson Websocket Client Proxy Code/Deployment"'
+    println ''
+    println 'result:'
+    println 'ENOP-257-Review-Emerson-Websocket-Client-Proxy-Code-Deployment'
+    println ''
+    println 'the third parameter is optional. if provided, it must be the letter v. this creates a verbose output.'
+}
+
+if (wrongArgCount(args)) {
+    println 'Unexpected number of arguments. Args, if any, are:'
+    args.each {
+        println it 
+    }
+    println "" 
+    println 'If you do not have a story/task story - enter N/A'
+    usage()
+}
+else {
+    def verbose = args.size() == 3 && args[2] == 'v'
+    if (verbose) println "story is ${args[0]}"
+    if (verbose) println "story title is ${args[1]}"
+
+    def story = args[0].toUpperCase()
+    def title = args[1].toLowerCase().
+                        tokenize().collect { it.capitalize() }.join(' ').
+                        replaceAll("_", '-').
+                        replaceAll("\\s", '-').
+                        replaceAll("[^A-Za-z0-9-]", '').
+                        replaceAll("-+", '-')
+
+    groovy.lang.GString storyBranch = "${story}-${title}"
+
+    def truncate = storyBranch.size() > 96
+    def size = truncate ? 96 : storyBranch.size() - 1
+
+    if (verbose) println "${storyBranch[0..size]}"
+
+    if (truncate) {
+        println "WARNING - story branch name was truncated from ${storyBranch.size()} to 96"
+        println ''
+    }
+
+    println storyBranch
+}
