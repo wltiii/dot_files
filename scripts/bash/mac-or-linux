@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# Returns string representation of the OS
+#
+
+case "$OSTYPE" in
+  darwin*)  echo "MAC" ;;
+  linux*)   echo "LINUX" ;;
+  solaris*) echo "SOLARIS" ;;
+  bsd*)     echo "BSD" ;;
+  msys*)    echo "WINDOWS" ;;
+  cygwin*)  echo "WINDOWS" ;;
+  *)        echo "unknown: $OSTYPE" ;;
+esac
