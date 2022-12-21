@@ -20,12 +20,16 @@ initFeature() {
 
   init "$FEATURE_PATH"
 
+  init "$FEATURE_PATH/domain"
   init "$FEATURE_PATH/domain/entity"
+  init "$FEATURE_PATH/domain/ports"
   init "$FEATURE_PATH/domain/ports/incoming"
   init "$FEATURE_PATH/domain/ports/outgoing"
   init "$FEATURE_PATH/domain/usecase"
 
+  init "$FEATURE_PATH/external"
   init "$FEATURE_PATH/external/models"
+  init "$FEATURE_PATH/external/page"
   init "$FEATURE_PATH/external/page/controllers"
   init "$FEATURE_PATH/external/page/widgets"
   init "$FEATURE_PATH/external/persistence"
