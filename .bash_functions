@@ -27,6 +27,19 @@ cleanup-snap() {
 #
 # I have yet to get this to run, therefore  I run `snap list --all | grep disabled`, then remove manually.
 #
+# Perhaps the script could be modified to capture the list from the following grep:
+#   disabled='snap list --all | grep disabled'
+#
+# then:
+#   for i in "${disabled}"; do
+#       awk '${print $1, $3}'
+#       snapname=$(echo $i | awk 'print $1')
+#       revision=$(echo $i | awk 'print $3')
+#       echo "snapname is $snapname"
+#       echo "revision is revision"
+#       sudo snap remove "$snapname" --revision="$revision"
+#   done
+#
 # For example
 #
 # ? snap list --all | grep disabled
@@ -126,6 +139,8 @@ flutter-coverage() {
 ########################################################################
 fvm-flutter-update() {
     stable_version=`fvm-list-stable-releases`
+
+    # stable_version='Nov 23 22  │ 3.3.9             stable'
     latest_version=`grep -o "[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}" <<<$stable_version`
 
     echo
