@@ -166,8 +166,8 @@ inotifywait -m -e close_write --format '%w%f' --exclude '\.g\.dart$' "$watch_dir
   fi
 done
 
-This script uses the lcov tool to extract the coverage percentage from the coverage report, and then compares it to 90% using the bc command. If the coverage is below 90%, the script uses the genhtml command to generate an HTML coverage report in the coverage/html directory. Finally, the script opens the coverage report in Firefox using the firefox command.
-
-If the coverage is above 90%, the script simply commits the changes as in the previous versions.
-
-I hope this helps! Let me know if you have any questions.
+#This script uses the lcov tool to extract the coverage percentage from the coverage report, and then compares it to 90% using the bc command. If the coverage is below 90%, the script uses the genhtml command to generate an HTML coverage report in the coverage/html directory. Finally, the script opens the coverage report in Firefox using the firefox command.
+#
+#If the coverage is above 90%, the script simply commits the changes as in the previous versions.
+#
+#I hope this helps! Let me know if you have any questions.
