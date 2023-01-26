@@ -100,21 +100,26 @@ findpart() { [ -e "$1" ] && df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 
 ########################################################################
 flutter-coverage() {
 
+    # TODO consider using https://pub.dev/packages/pcov
     case "$OSTYPE" in
       solaris*) echo "SOLARIS" ;;
       darwin*)
-             echo "MAC - flutter-coverage"
+            echo "MAC - flutter-coverage"
             # run flutter coverage (lcov)
             flutter test --coverage
+            # remove generated files '.g.' and .freezed.'
+            lcov --remove coverage/lcov.info '**/*.freezed.dart' '**/*.g.dart'  -o coverage/lcov.info
             # generate html
             genhtml coverage/lcov.info -o coverage/html
             # launch firefox browser
             open -a /Applications/Firefox.app coverage/html/index.html
             ;;
       linux*)
-             echo "LINUX - flutter-coverage"
+            echo "LINUX - flutter-coverage"
             # run flutter coverage (lcov)
             flutter test --coverage
+            # remove generated files '.g.' and .freezed.'
+            lcov --remove coverage/lcov.info '**/*.freezed.dart' '**/*.g.dart'  -o coverage/lcov.info
             # generate html
             genhtml coverage/lcov.info -o coverage/html
             # launch firefox browser
