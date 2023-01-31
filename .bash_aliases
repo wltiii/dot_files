@@ -376,11 +376,11 @@ alias xless="xml | less"                      # pipes xml to less - see bash fun
 ############################################################################
 # Software analysis
 ############################################################################
-alias xray=". ~/workspace/dot_files/code-xray.sh"
-alias xray-log=". ~/workspace/dot_files/code-xray.sh log"
-alias xray-top=". ~/workspace/dot_files/code-xray.sh top"
-alias cloc-no-log=". ~/workspace/dot_files/code-xray.sh cloc"
-alias cloc-top=". ~/workspace/dot_files/code-xray.sh cloc-top"
+alias xray=". ~/workspace/dot_files/scripts/bash/code-xray"
+alias xray-log=". ~/workspace/dot_files/scripts/bash/code-xray log"
+alias xray-top=". ~/workspace/dot_files/scripts/bash/code-xray top"
+alias cloc-no-log=". ~/workspace/dot_files/scripts/bash/code-xray cloc"
+alias cloc-top=". ~/workspace/dot_files/scripts/bash/code-xray cloc-top"
 
 ############################################################################
 # Interactive operation...
