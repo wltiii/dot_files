@@ -90,6 +90,12 @@ alias brew-upgrade-help='brew help upgrade'
 alias brew-upgrade='brew upgrade'
 
 ############################################################################
+# dart aliases
+############################################################################
+alias dart-repl='interactive'
+alias dart-repl-help='printf "\nUSAGE: dart-repl\nDESCRIPTION: Runs \`interactive.\`\nTo quit: \`CONTROL+C\` (MAC)\nSEE: https://pub.dev/documentation/interactive/latest/\n\n"'
+
+############################################################################
 # docker aliases
 ############################################################################
 alias docker-attach-container='docker attach'
