@@ -357,6 +357,7 @@ alias sdk-version='sdk version'
 # alias refresh='source ~/.bash_profile' # this does not work. see README.
 # alias work='cd ~/workspace'                 # removed. use groovy script 'work' in workman project
 # alias less='less -r'                        # raw control characters
+alias install-dot='./install.sh && source ~/.bash_profile'
 alias clr='clear'
 alias clean-snap='cleanup-snap'
 alias filtered-aliases='alias | grep "$@"'

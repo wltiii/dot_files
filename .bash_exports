@@ -59,6 +59,7 @@ export PATH=$PATH:$HOME/bin/python
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.work
 export PATH="$PATH:$HOME/fvm/default/bin"
+export PATH="$PATH:$HOME./.sdkman/candidates/gradle/current/bin/gradle"
 
 # these are probably localized paths for using FVM non-global versions
 #export PATH=$PATH:`pwd`/flutter/bin
