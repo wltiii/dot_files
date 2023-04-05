@@ -65,6 +65,8 @@ alias adb='~/Android/Sdk/platform-tools/adb'
 ############################################################################
 alias adoc-gen-help='run adoc-gen from root of presentation folder. File presentation.adoc must existing within the folder.'
 alias adoc-gen='npx asciidoctor-revealjs presentation.adoc'
+alias make-asciidoc='make-asciidoc-presentation.sh'
+alias make-adoc='make-asciidoc-presentation.sh'
 
 ############################################################################
 # homebrew aliases
