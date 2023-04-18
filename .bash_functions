@@ -149,14 +149,25 @@ fvm-flutter-update() {
     latest_version=`grep -o "[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}" <<<$stable_version`
 
     echo
+    echo '****************************************'
     echo "Installing and setting global version to $latest_version"
+    echo '****************************************'
     echo
     fvm install $latest_version
     fvm global $latest_version
 
     echo
-    echo 'installed versions are:'
+    echo '****************************************'
+    echo 'installed Flutter versions are:'
     fvm-list
+    echo '****************************************'
+
+    echo
+    echo '****************************************'
+    echo 'current Dart version:'
+    dart --version
+    fvm-list
+    echo '****************************************'
 
     echo
     echo 'use `fvm-remove [old-version-number]` to remove unnecessary versions'
