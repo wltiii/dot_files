@@ -64,7 +64,8 @@ alias adb='~/Android/Sdk/platform-tools/adb'
 # asciidoc aliases
 ############################################################################
 alias adoc-gen-help='run adoc-gen from root of presentation folder. File presentation.adoc must existing within the folder.'
-alias adoc-gen='npx asciidoctor-revealjs presentation.adoc'
+# alias adoc-gen='npx asciidoctor-revealjs presentation.adoc'
+alias adoc-slides='adoc-slide-gen.sh'
 alias make-asciidoc='make-asciidoc-presentation.sh'
 alias make-adoc='make-asciidoc-presentation.sh'
 
