@@ -107,6 +107,7 @@ Version 0.1, 11/19/2022
 :authors: Bill Turner (c)
 :sourcedir: ../lib
 :imagesdir: ./images
+:includesdir: includes
 :source-highlighter: pygments
 
 == A Slide With Text
