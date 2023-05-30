@@ -55,7 +55,7 @@ def analyze_source_code(file_path):
     return complexity
 
 
-def analyze_project_directory(directory_path, thresholds):
+def analyze_project_directory(directory_path, thresholds, file_types):
     results = {}
 
     # Load previous data
@@ -63,15 +63,12 @@ def analyze_project_directory(directory_path, thresholds):
         with open(DATA_FILE, "r") as file:
             results = json.load(file)
 
-    # file type tuple
-    ext = (".py", ".java", ".dart", ".kt", ".ts", ".js")
-    print("-------------------")
-    print(f"- Analyzing files with extensions: {ext}")
-    print("-------------------")
     # Analyze source code files
     for root, dirs, files in os.walk(directory_path):
         for file in files:
-            if file.endswith(ext):
+            file_extension = os.path.splitext(file)[1][1:]  # Get file extension without the dot
+
+            if file_extension in file_types:
                 file_path = os.path.join(root, file)
                 last_modified = os.path.getmtime(file_path)
 
@@ -116,47 +113,69 @@ def save_configuration(configuration):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Analyze the complexity of Python source code in a project directory.")
-    parser.add_argument("directory_path", help="Path to the project source code directory")
+    parser = argparse.ArgumentParser(description="Analyze the complexity of source code files in a project directory.")
+    parser.add_argument("directory_path", help="Path to the project directory")
     parser.add_argument("--critical", type=int, help="Critical complexity score threshold")
     parser.add_argument("--high", type=int, help="High complexity score threshold")
     parser.add_argument("--warning", type=int, help="Warning complexity score threshold")
     parser.add_argument("--save-defaults", action="store_true", help="Save provided thresholds as defaults")
+    parser.add_argument("--file-types", nargs="+", default=["py", "java", "kt", "dart", "ts"],
+                        help="List of file extensions to analyze (default: py, java, kt, dart, ts)")
 
     args = parser.parse_args()
     directory_path = args.directory_path
 
-    # Get configuration and update thresholds if provided
+    # Get configuration and update thresholds or file types if provided
     configuration = get_configuration()
     thresholds = {
         "critical": args.critical or configuration.get("critical", DEFAULT_THRESHOLDS["critical"]),
         "high": args.high or configuration.get("high", DEFAULT_THRESHOLDS["high"]),
         "warning": args.warning or configuration.get("warning", DEFAULT_THRESHOLDS["warning"])
     }
+    file_types = args.file_types or configuration.get("file_types")
 
     # Save thresholds as defaults if requested
     if args.save_defaults:
         save_configuration(thresholds)
 
-    results = analyze_project_directory(directory_path, thresholds)
+    # Save file types as defaults if requested
+    if args.file_types:
+        configuration["file_types"] = args.file_types
+        save_configuration(configuration)
+
+    results = analyze_project_directory(directory_path, thresholds, file_types)
 
     critical_files = []
     high_files = []
     warning_files = []
 
-    for file_path, data in results.items():
-        complexity = data["complexity"]
-        last_modified = data["last_modified"]
+    # Print search path
+    print(f"Searching for source files in: {directory_path}\n")
 
-        last_modified_str = time.ctime(last_modified)
-        complexity_score = complexity["complexity_score"]
+    # Print summary
+    print("Complexity Summary:")
+    print("-------------------")
+    for file_type in file_types:
+        files = []
+        threshold_key = f"{file_type}_score_threshold"
+        threshold = configuration.get(threshold_key)
 
-        if complexity_score >= thresholds["critical"]:
-            critical_files.append((file_path, complexity_score, last_modified_str))
-        elif complexity_score >= thresholds["high"]:
-            high_files.append((file_path, complexity_score, last_modified_str))
-        elif complexity_score >= thresholds["warning"]:
-            warning_files.append((file_path, complexity_score, last_modified_str))
+        if not threshold:
+            continue
+
+        for file_path, data in results.items():
+            complexity = data["complexity"]
+            last_modified = data["last_modified"]
+
+            last_modified_str = time.ctime(last_modified)
+            complexity_score = complexity["complexity_score"]
+
+            if complexity_score >= thresholds["critical"]:
+                critical_files.append((file_path, complexity_score, last_modified_str))
+            elif complexity_score >= thresholds["high"]:
+                high_files.append((file_path, complexity_score, last_modified_str))
+            elif complexity_score >= thresholds["warning"]:
+                warning_files.append((file_path, complexity_score, last_modified_str))
 
     # Sort files by complexity score (descending)
     critical_files.sort(key=lambda x: x[1], reverse=True)
