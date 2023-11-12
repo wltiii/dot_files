@@ -419,7 +419,7 @@ case "$OSTYPE" in
       echo "LINUX - specific aliases"
 #       alias idea='intellij-idea-community .'
       alias idea='intellij-idea-community'
-      alias py='/usr/bin/python'
+      alias py='/usr/bin/python3'
       alias python='/usr/bin/python3'
 
       ;;
