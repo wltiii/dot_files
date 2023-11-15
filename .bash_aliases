@@ -414,10 +414,11 @@ case "$OSTYPE" in
 #     To enable command line: Open IntelliJ IDEA, go to Tools->Create Command-Line Launcher...
 #     This could break with a new version IDEA - see https://emmanuelbernard.com/blog/2017/02/27/start-intellij-idea-command-line/
       alias idea='/usr/local/bin/idea'
+      # alias python='/Library/Frameworks/Python.framework/Versions/3.11/bin/Python3'
+      alias python='Python3'
       ;;
   linux*)
       echo "LINUX - specific aliases"
-#       alias idea='intellij-idea-community .'
       alias idea='intellij-idea-community'
       alias py='/usr/bin/python3'
       alias python='/usr/bin/python3'
