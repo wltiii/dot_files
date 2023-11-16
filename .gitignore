@@ -1,4 +1,4 @@
-# unignore globally ignored files
+# unignore make-project.sh in directory in which this resides
 !make-project.sh
 
 # ignore vscode history
