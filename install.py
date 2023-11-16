@@ -11,6 +11,7 @@
 # so testing in a controlled environment before using it on important files is
 # advisable.
 #
+import filecmp
 import os
 import shutil
 from datetime import datetime
