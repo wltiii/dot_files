@@ -184,14 +184,32 @@ flutter-create-null-safe() {
     idea .
 }
 ########################################################################
+# to-lower will handle mixed case and ignore any non-alphabetic
+# characters, leaving digits and special characters unchanged while converting
+# letters to the desired case.
+########################################################################
+function to-lower() {
+    echo $1 | tr '[:upper:]' '[:lower:]'
+}
+
+########################################################################
+# to-upper will handle mixed case and ignore any non-alphabetic
+# characters, leaving digits and special characters unchanged while converting
+# letters to the desired case.
+########################################################################
+function to-upper() {
+    echo "$1" | tr '[:lower:]' '[:upper:]'
+}
+
+########################################################################
 # to-dashed-string 'a string'
 ########################################################################
 to-dashed-string() {
     echo $1 | sed 's/ /-/g'
 }
 ########################################################################
-# to-dashed-lowercase-string 'a string'
-#   returns A String
+# to-dashed-lowercase-string 'A String'
+#   returns `a-string`
 ########################################################################
 to-dashed-lowercase-string() {
     echo $1 | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g'
@@ -226,7 +244,6 @@ git-apply-changes-to() {
 ########################################################################
 git-ticket() {
   # TODO handle non existent branches
-#  git rev-parse --abbrev-ref HEAD | perl -ne 'print m{(?:^|/)([A-Z]+-\d+)} ? qq{$1 } : q{}'
   git rev-parse --abbrev-ref HEAD | perl -ne 'print m{(?:^)([\w]+-\d+)} ? uc(qq{\[$1\] }) : q{}'
 }
 

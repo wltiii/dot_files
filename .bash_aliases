@@ -411,15 +411,16 @@ alias mv='mv -i' #Prompts you if you are going to overwrite something
 case "$OSTYPE" in
   darwin*)
       echo "OSX - specific aliases"
-#     To enable command line: Open IntelliJ IDEA, go to Tools->Create Command-Line Launcher...
-#     This could break with a new version IDEA - see https://emmanuelbernard.com/blog/2017/02/27/start-intellij-idea-command-line/
       alias idea='/usr/local/bin/idea'
-#     NOTE: does it make sense to link python3 on OSX as I am planning for Linux as shown below?
-
-      # alias python='/Library/Frameworks/Python.framework/Versions/3.11/bin/Python3'
-      # it seems unlikely that I will every use Python2.
-      alias py='Python3'
-      alias python='Python3'
+#
+#       NOTE: does it make sense to link python3 on OSX as I am planning for
+#       Linux as shown below?
+#       Probably not, unless I do it through /usr/local/bin (?). What is
+#       contained in /usr/bin is protected from modification on MAC
+#
+#     it seems unlikely that I will ever use Python2.
+      alias python='/Library/Frameworks/Python.framework/Versions/3.12/bin/python3'
+      alias py='/Library/Frameworks/Python.framework/Versions/3.12/bin/python3'
       ;;
   linux*)
     #   NOTE: python3 needs to be linked to the correct version. For example, the command
@@ -428,35 +429,39 @@ case "$OSTYPE" in
     #
     #         IT might be nice to always run the link command on startup.
     #
-    #   To run the `ln` command on startup from the `.bash_profile` without prompting for a password, you can use the `sudo` command with the `-n` flag and specify the specific command you want to run without a password prompt in the sudoers file. Here's how you can do it:
-    #   1. Open a terminal window.
-    #   2. Use a text editor to edit the sudoers file. You can use the `visudo` command to safely edit the sudoers file. Run the following command:
+    #   To run the `ln` command on startup from the `.bash_profile` without
+    #   prompting for a password, you can use the `sudo` command with the `-n`
+    #   flag and specify the specific command you want to run without a password
+    #   prompt in the sudoers file. Here's how you can do it:
     #
+    #   1. Open a terminal window.
+    #   2. Use a text editor to edit the sudoers file. You can use the `visudo`
+    #   command to safely edit the sudoers file. Run the following command:
     #      ```
     #      sudo visudo
     #      ```
-    #
-    #   3. In the sudoers file, add the following line at the end, replacing `<username>` with your actual username and `<command>` with the `ln` command you want to run:
-    #
+    #   3. In the sudoers file, add the following line at the end, replacing
+    #   `<username>` with your actual username and `<command>` with the `ln`
+    #   command you want to run:
     #      ```
     #      <username> ALL=(ALL) NOPASSWD: /bin/ln <command>
     #      ```
-    #
-    #      For example, if you want to create a symbolic link to a file without a password prompt, you might have a line like this:
-    #
+    #   For example, if you want to create a symbolic link to a file without a
+    #   password prompt, you might have a line like this:
     #      ```
     #      johndoe ALL=(ALL) NOPASSWD: /bin/ln -s /path/to/sourcefile /path/to/targetfile
     #      ```
-    #
-    #      Make sure to specify the full path to the `ln` command (usually `/bin/ln`) and the full paths to the source and target files.
+    #   Make sure to specify the full path to the `ln` command
+    #   (usually `/bin/ln`) and the full paths to the source and target files.
     #
     #   4. Save and exit the text editor.
+    #   Now, when you run the `ln` command in your `.bash_profile` or any other
+    #   startup script, it should not prompt you for a password.
     #
-    #   Now, when you run the `ln` command in your `.bash_profile` or any other startup script, it should not prompt you for a password.
-    #   Please be cautious when editing the sudoers file, as incorrect changes can lead to system issues. Double-check your entries for accuracy before saving the file.
+    #   Be cautious when editing the sudoers file, as incorrect changes can lead
+    #   to system issues. Double-check your entries for accuracy before saving the file.
       echo "LINUX - specific aliases"
       alias idea='intellij-idea-community'
-      # it seems unlikely that I will every use Python2.
       alias py='/usr/bin/python3'
       alias python='/usr/bin/python3'
 

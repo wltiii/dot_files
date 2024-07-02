@@ -34,11 +34,9 @@ putFile() {
 installFile() {
   filename="$1"
   targetFile="$HOME/$filename"
-  echo ".... installing $filename to $targetFile"
 
-  if cmp -s "$filename" "$targetFile"; then
-    echo ".... $filename is identical, skipping backup"
-  else
+  if ! cmp -s "$filename" "$targetFile"; then
+    echo ".... installing $filename to $targetFile"
     backupFile "$filename"
     putFile "$filename"
   fi
